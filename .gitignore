@@ -38,9 +38,7 @@ tmp/
 temp/
 
 # NLP data and artifacts
-data/raw/
 data/interim/
-data/processed/
 artifacts/
 checkpoints/
 models/
