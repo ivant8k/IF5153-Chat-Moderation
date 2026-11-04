@@ -1,40 +1,69 @@
 # Preprocessing Task 1
 
-`data/raw` + `data/annotations/task_1` -> skrip -> `data/processed/task_1`
+Python 3.12, library standar. Jalankan dari root repo.
 
-Python 3.12, hanya library standar. Jalankan dari root repo.
+## Alur
 
-## Skrip
+| Tahap | Skrip | Fungsi | Output |
+| --- | --- | --- | --- |
+| 1 | `s1_prepare.py` | raw -> format slot, split CONDA per match 80/10/10 | `mln/`, `conda/lines.tsv`, `noisyhate/` |
+| 2 | `s2_candidates.py` | source label per tipe, todo LLM, review MLN | `labeling/`, `type_labels/review_mln.tsv` |
+| 3 | manual | label LLM + QC human | `type_labels/`, `slot_labels/` |
+| 4 | `s4_build.py` | gabung label + validasi | `conda/{train,dev,bench}.tsv`, `resources/`, `reports/` |
+| 5 | `s5_gold_sample.py` | sampel gold dari bench, sekali | `line_labels/gold_conda.tsv`, `line_labels/gold_strata.json` |
+| 6 | `s6_augment.py` | salinan dengan satu kata disamarkan | `augmented/` |
+
+## Run Ulang
 
 ```bash
-python src/task_1/prepare/s1_prepare.py      # raw -> mln_*.tsv, conda_lines.tsv, noisyhate_test.tsv
-python src/task_1/prepare/s2_candidates.py   # corong lapis 1-5 -> types.tsv, todo_llm_*.tsv, review_mln.tsv
+python src/task_1/prepare/s1_prepare.py
+python src/task_1/prepare/s2_candidates.py
+python src/task_1/prepare/s4_build.py
+python src/task_1/prepare/s6_augment.py
 ```
 
-Hasil selalu sama tiap dijalankan ulang. Skrip tidak pernah menimpa isian di `data/annotations/`.
+## Struktur
 
-## Langkah Manual
+```
+data/annotations/task_1/
+  guideline.md, labeling_log.md
+  type_labels/   review_mln.tsv, llm_types.tsv
+  slot_labels/   llm_slots.tsv, context_types.txt
+  line_labels/   line_overrides.tsv, gold_conda.tsv, gold_strata.json
+  resources/     obfuscation_lexicon.tsv, whitelist.txt (opsional)
 
-| Langkah | Oleh | File di `data/annotations/task_1/` |
-| --- | --- | --- |
-| Label lapis 6 (per tipe) | LLM | `llm_types.tsv` |
-| Label lapis 7 (per slot) | LLM | `llm_slots.tsv` |
-| Label bentuk tersamar lexicon | LLM | `obfuscation_lexicon.tsv` |
-| QC | user | `review_mln.tsv`, `llm_types.tsv`, `obfuscation_lexicon.tsv` |
+data/processed/task_1/
+  mln/           train, dev, test
+  conda/         lines, train, dev, bench
+  noisyhate/     test
+  augmented/     train, conda_dev, conda_bench
+  labeling/      types, todo_llm_types, todo_llm_slots
+  resources/     whitelist.txt
+  reports/       build_stats.json, aug_stats.json, failures.tsv
+```
 
-Acuan semua label: `guideline.md`. Riwayat batch: `labeling_log.md`.
+## Source Label
 
-## Cara QC
+Kolom `source` di `labeling/types.tsv`:
 
-1. Buka file di VSCode, jangan Excel (teks berawalan `=` akan rusak).
-2. Baris salah -> ubah kolom `final`.
-3. Isi `checked` dengan `1`. Kolom `note` opsional.
-4. Jumlah kata boleh berubah, tapi jangan menulis `|` atau tab.
+| Source | Label |
+| --- | --- |
+| `context` | per kemunculan, `slot_labels/llm_slots.tsv` |
+| `protected` | tetap |
+| `mln_changed` | `type_labels/review_mln.tsv` |
+| `mln_same`, `symbol_laugh`, `english` | tetap |
+| `llm_type` | `type_labels/llm_types.tsv` |
+| `llm_slot` | `slot_labels/llm_slots.tsv` |
 
-## Aturan Berubah
+Prioritas: gold_conda > line_overrides > llm_slots > label per tipe > label otomatis
 
-Naikkan versi di `guideline.md`, catat di `labeling_log.md`, lalu label yang terdampak dikerjakan ulang.
+## QC
 
-## Belum Ada
+- Edit di VSCode, bukan Excel.
+- Ubah `final` (atau `gold`, `tgt`), isi `checked` = 1.
+- Tanpa `|` dan tab. Di `gold_conda` dan `line_overrides`, jumlah `|` sama dengan `src`.
+- Setelah QC: run ulang tahap 4 dan 6.
 
-`s4_build.py` (gabung label + validasi), `s5_gold_sample.py`, `s6_augment.py`.
+## Guideline Berubah
+
+Naikkan versi `guideline.md`, catat di `labeling_log.md`, label ulang yang terdampak, run ulang tahap 4 dan 6.
