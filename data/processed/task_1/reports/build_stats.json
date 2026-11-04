@@ -1,0 +1,27 @@
+{
+  "conda_changed_lines": {
+    "bench": 886,
+    "dev": 1151,
+    "train": 9973
+  },
+  "conda_lines": {
+    "bench": 4777,
+    "dev": 6012,
+    "train": 50427
+  },
+  "failures": {},
+  "gold": {
+    "lines": 300,
+    "silver_line_agreement": 0.9633,
+    "silver_slot_agreement": 0.9885
+  },
+  "label_origin_slots": {
+    "auto": 127743,
+    "gold": 1041,
+    "line_override": 58,
+    "llm_slot": 8762,
+    "llm_type": 5665,
+    "mln_review": 8989
+  },
+  "whitelist_size": 1036
+}

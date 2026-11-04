@@ -1,18 +1,18 @@
 # Labeling Log Task 1
 
-Catatan setiap batch pelabelan LLM. Input diambil dari `data/processed/task_1/todo_llm_*.tsv`, output ditulis ke folder ini.
-
-| Batch | Tanggal | Guideline | Lapis | Input | Jumlah | Output | Status |
+| Batch | Tanggal | Guideline | Jenis | Input | Jumlah | Output | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| L6-001 | 2026-11-03 | v1 | 6 | todo_llm_types.tsv | 344 tipe: 120 diubah, 224 dibiarkan | llm_types.tsv | menunggu QC user |
-| L6-002 | 2026-11-04 | v2 | 6 | todo_llm_types.tsv | 1 tipe baru (`n i k i t a`) dari aturan gabung huruf | llm_types.tsv | menunggu QC user |
-| OBF-001 | 2026-11-04 | v2 | - | lexicon T CONDA, entri berisi angka/simbol | 50 bentuk tersamar | obfuscation_lexicon.tsv | menunggu QC user |
-| L7-00 s/d L7-11 | 2026-11-04 | v2 | 7 | todo_llm_slots.tsv | 8760 slot (7036 tipe): 3574 slot diubah | llm_slots.tsv | dinilai lewat gold |
+| TYPE-001 | 2026-11-03 | v1 | per tipe | todo_llm_types | 344 tipe, 120 diubah | type_labels/llm_types.tsv | QC human |
+| TYPE-002 | 2026-11-04 | v2 | per tipe | todo_llm_types | 1 tipe (`n i k i t a`) | type_labels/llm_types.tsv | QC human |
+| OBF-001 | 2026-11-04 | v2 | lexicon | lexicon T CONDA, entri berangka/simbol | 50 bentuk | resources/obfuscation_lexicon.tsv | QC human |
+| SLOT-00 s/d SLOT-11 | 2026-11-04 | v2 | per kemunculan | todo_llm_slots, source llm_slot | 8760 slot (7036 tipe), 3574 diubah | slot_labels/llm_slots.tsv | dinilai lewat gold |
+| CTX-001 | 2026-11-04 | v2 | per kemunculan | todo_llm_slots, source context (`d`) | 79 slot, 6 jadi `the` | slot_labels/llm_slots.tsv | dinilai lewat gold |
+| OVR-001 | 2026-11-04 | v2 | per baris | reports/failures.tsv | 10 baris, salah positif lexicon T | line_labels/line_overrides.tsv | QC human |
 
 ## Catatan
 
-- L6-001 dicek ulang terhadap v2: penyamaran yang ada (`w0w`, `t0`, `n1`, `fkn`) sudah dinormalkan, tidak ada perubahan.
-- Lapis 7 dilabel per tipe dengan melihat sampai 2 baris konteks, lalu label diterapkan ke semua slot tipe itu. Alasan: tipe lapis 7 muncul paling banyak 4 kali, konteks hampir tidak berbeda. Kolom `batch` di `llm_slots.tsv` menunjuk batch tipe.
-- Lapis 7 tidak di-QC per baris. Kualitasnya diukur dari kecocokan silver dengan gold (`gold_conda.tsv`).
-- Keterbatasan: penyamaran yang terpecah jadi 2 token (`f uck`) tidak bisa dipulihkan karena aturan gabung huruf butuh minimal 3 huruf tunggal.
-- Kasus ragu dibiarkan sesuai guideline, contoh `eniggerma`, `cumbacket`, `mitches`.
+- TYPE-001 dicek ulang dengan v2.
+- SLOT: label per tipe, maks 2 baris konteks, diterapkan ke semua kemunculan tipe itu.
+- CTX: tipe di `context_types.txt`, label per kemunculan.
+- `llm_slots.tsv` tanpa QC per baris.
+- `f uck` (2 token) tidak tergabung jadi satu slot.

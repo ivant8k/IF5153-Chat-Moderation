@@ -1,0 +1,30 @@
+{
+  "bench": {
+    "accent": 526,
+    "drop": 393,
+    "leet": 514,
+    "leet_repeat": 519,
+    "repeat": 551,
+    "spaced": 531,
+    "symbol": 551
+  },
+  "dev": {
+    "accent": 670,
+    "drop": 523,
+    "leet": 658,
+    "leet_repeat": 649,
+    "repeat": 700,
+    "spaced": 683,
+    "symbol": 699
+  },
+  "train": {
+    "accent": 1203,
+    "drop": 851,
+    "leet": 2954,
+    "leet_repeat": 600,
+    "real": 84,
+    "repeat": 3223,
+    "spaced": 1192,
+    "symbol": 1858
+  }
+}
