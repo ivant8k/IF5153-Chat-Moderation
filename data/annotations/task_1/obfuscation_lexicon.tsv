@@ -1,51 +1,51 @@
 raw	llm_norm	final	checked	note
-4r5e	arse	arse		
-5h1t	shit	shit		
-5hit	shit	shit		
-a55	ass	ass		
-ar5e	arse	arse		
-b!tch	bitch	bitch		
-b00bs	boobs	boobs		
-b17ch	bitch	bitch		
-b1tch	bitch	bitch		
-bi+ch	bitch	bitch		
-brea5t	breast	breast		
-c0ck	cock	cock		
-c0cksucker	cocksucker	cocksucker		
-cl1t	clit	clit		
-cra5h	crash	crash		ada di lexicon T, makna toksik tidak jelas
-d1ck	dick	dick		
-f4nny	fanny	fanny		
-fux0r	fucker	fucker		slang leet untuk fucker
-l3i+ch	bitch	bitch		l3 dibaca b
-l3itch	bitch	bitch		l3 dibaca b
-m0f0	mofo	mofo		
-m0fo	mofo	mofo		
-m45terbate	masturbate	masturbate		
-ma5terb8	masturbate	masturbate		
-ma5terbate	masturbate	masturbate		
-masterb8	masturbate	masturbate		
-masterbat*	masturbate	masturbate		
-masterbat3	masturbate	masturbate		
-mof0	mofo	mofo		
-n1gga	nigga	nigga		de-leet saja, normalisasi nigga -> nigger ikut keputusan review_mln
-n1gger	nigger	nigger		
-nigg3r	nigger	nigger		
-nigg4h	nigga	nigga		varian nigga
-nigga1	nigga	nigga		
-p0rn	porn	porn		
-peni5	penis	penis		
-pi55	piss	piss		
-pu55i	pussy	pussy		
-pu55y	pussy	pussy		
-ra8s	ra8s	ra8s		ragu: bentuk asli tidak jelas, dibiarkan
-sh!+	shit	shit		
-sh!t	shit	shit		
-sh1t	shit	shit		
-t1tt1e5	titties	titties		
-t1tties	titties	titties		
-tittie5	titties	titties		
-tw4t	twat	twat		
-v14gra	viagra	viagra		
-v1gra	viagra	viagra		
-w00se	woose	woose		
+4r5e	arse	arse	1	
+5h1t	shit	shit	1	
+5hit	shit	shit	1	
+a55	ass	ass	1	
+ar5e	arse	arse	1	
+b!tch	bitch	bitch	1	
+b00bs	boobs	boobs	1	
+b17ch	bitch	bitch	1	
+b1tch	bitch	bitch	1	
+bi+ch	bitch	bitch	1	
+brea5t	breast	breast	1	
+c0ck	cock	cock	1	
+c0cksucker	cocksucker	cocksucker	1	
+cl1t	clit	clit	1	
+cra5h	crash	crash	1	ada di lexicon T, makna toksik tidak jelas
+d1ck	dick	dick	1	
+f4nny	fanny	fanny	1	
+fux0r	fucker	fucker	1	slang leet untuk fucker
+l3i+ch	bitch	bitch	1	l3 dibaca b
+l3itch	bitch	bitch	1	l3 dibaca b
+m0f0	mofo	mofo	1	
+m0fo	mofo	mofo	1	
+m45terbate	masturbate	masturbate	1	
+ma5terb8	masturbate	masturbate	1	
+ma5terbate	masturbate	masturbate	1	
+masterb8	masturbate	masturbate	1	
+masterbat*	masturbate	masturbate	1	
+masterbat3	masturbate	masturbate	1	
+mof0	mofo	mofo	1	
+n1gga	nigga	nigga	1	de-leet saja, normalisasi nigga -> nigger ikut keputusan review_mln
+n1gger	nigger	nigger	1	
+nigg3r	nigger	nigger	1	
+nigg4h	nigga	nigga	1	varian nigga
+nigga1	nigga	nigga	1	
+p0rn	porn	porn	1	
+peni5	penis	penis	1	
+pi55	piss	piss	1	
+pu55i	pussy	pussy	1	
+pu55y	pussy	pussy	1	
+ra8s	ra8s	ra8s	1	ragu: bentuk asli tidak jelas, dibiarkan
+sh!+	shit	shit	1	
+sh!t	shit	shit	1	
+sh1t	shit	shit	1	
+t1tt1e5	titties	titties	1	
+t1tties	titties	titties	1	
+tittie5	titties	titties	1	
+tw4t	twat	twat	1	
+v14gra	viagra	viagra	1	
+v1gra	viagra	viagra	1	
+w00se	woose	woose	1	
