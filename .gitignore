@@ -66,3 +66,5 @@ nltk_data/
 .DS_Store
 Thumbs.db
 internal/
+# Raw datasets, lihat README
+data/raw/
