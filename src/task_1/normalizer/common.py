@@ -1,11 +1,10 @@
 """Common: TSV, set data, format teks, resource"""
-import csv
 import json
 import os
 import zipfile
 from collections import Counter
 
-from config import (ANN, DATA, DELIM, DEV_SETS, EXPORT, LEXICON_FILE, MIXES, PREFIX, TEST_SETS, TRAIN_FILES,
+from config import (ANN, DATA, DELIM, DEV_SETS, EXPORT, MIXES, PREFIX, TEST_SETS, TOXIC_FILE, TRAIN_FILES,
                     VOCAB_FILE, WHITELIST_FILE, ZEROSHOT_PROMPT)
 
 
@@ -122,13 +121,16 @@ def to_target(tgt, fmt):
 
 
 # Resources
+def read_list(path):
+    return {w.strip() for w in path.read_text(encoding="utf-8").splitlines() if w.strip()}
+
+
 def load_protected():
-    return {w.strip() for w in WHITELIST_FILE.read_text(encoding="utf-8").splitlines() if w.strip()}
+    return read_list(WHITELIST_FILE)
 
 
 def load_toxic():
-    with open(LEXICON_FILE, encoding="utf-8", newline="") as f:
-        return {row["T"].lower() for row in csv.DictReader(f) if row["T"]}
+    return read_list(TOXIC_FILE)
 
 
 def load_vocab(min_freq=20):

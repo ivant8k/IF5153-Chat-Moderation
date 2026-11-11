@@ -6,9 +6,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / "data" / "processed" / "task_1"
 ANN = ROOT / "data" / "annotations" / "task_1"
-LEXICON_FILE = ROOT / "data" / "raw" / "conda" / "resources" / "lexicon_refined_1209.csv"
 VOCAB_FILE = ROOT / "data" / "raw" / "multilexnorm" / "wortschatz" / "en" / "eng_news_2025_1M-words.txt"
 WHITELIST_FILE = DATA / "resources" / "whitelist.txt"
+TOXIC_FILE = DATA / "resources" / "toxic.txt"
 PRETRAINED = ROOT / "models" / "pretrained"
 OUT = Path(os.environ.get("T1_OUT", ROOT / "outputs" / "task_1"))
 RUNS = OUT / "runs"

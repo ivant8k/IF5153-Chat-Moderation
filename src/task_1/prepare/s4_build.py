@@ -112,6 +112,7 @@ def main():
         write_tsv(OUT_CONDA / f"{split}.tsv", rows, OUT_FIELDS)
     write_tsv(OUT_REPORT / "failures.tsv", failures, ["id", "split", "raw", "src", "tgt", "reason"])
     n_white = make_whitelist(protected)
+    (OUT_RES / "toxic.txt").write_text("\n".join(sorted(toxic)) + "\n", encoding="utf-8")
 
     stats = {
         "conda_lines": {s: len(rows) for s, rows in outputs.items()},
