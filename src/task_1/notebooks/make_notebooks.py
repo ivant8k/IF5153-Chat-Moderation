@@ -96,8 +96,13 @@ def generate(dest=NB_DIR, smoke=False):
     paths.append(write(dest / "predict" / "test.ipynb", notebook(
         "Prediksi test", "Dijalankan sekali setelah tahap E selesai, di tiap device untuk run miliknya.",
         "SMOKE = False",
-        "# Prediction\nimport predict\n\nfor run_id in predict.trained_runs(SMOKE):\n"
+        "# Prediction\nimport predict\nimport runs\n\n"
+        "final = runs.load_winners(SMOKE)[\"e\"]\n"
+        "for run_id in predict.trained_runs(SMOKE):\n"
         "    predict.predict(run_id, \"test\", 1, SMOKE)\n"
+        "    # beam pemenang tahap E\n"
+        "    if final[\"opts\"][\"beams\"] > 1 and run_id in runs.run_ids(final):\n"
+        "        predict.predict(run_id, \"test\", final[\"opts\"][\"beams\"], SMOKE)\n"
         f"if not (ON_COLAB or ON_KAGGLE):\n    predict.predict(\"{ZEROSHOT_ID}\", \"test\", 1, SMOKE)")))
     if "d" in win:
         paths.append(write(dest / "predict" / "stage_e.ipynb", notebook(
