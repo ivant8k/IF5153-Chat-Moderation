@@ -69,52 +69,55 @@ def train_notebook(run_id, smoke):
                     "# Training\nimport train\n\ntrain.train(RUN_ID, smoke=SMOKE)")
 
 
-def write(path, nb):
+def write(path, nb, overwrite):
+    # notebook yang sudah ada (bisa berisi output) tidak ditimpa
+    if path.exists() and not overwrite:
+        return path
     path.parent.mkdir(parents=True, exist_ok=True)
     nbformat.write(nb, path)
     return path
 
 
-def generate(dest=NB_DIR, smoke=False):
+def generate(dest=NB_DIR, smoke=False, overwrite=False):
     """keputusan tahap saat ini -> notebook yang bisa dibuat"""
     win = load_winners(smoke)
     paths = []
 
     # Train Notebooks
-    for stage in "abcd":
+    for stage in "abcde":
         try:
             run_list = train_runs(stage, win)
         except RuntimeError:
             break
         for run_id in run_list:
-            paths.append(write(dest / "train" / f"stage_{stage}" / f"{run_id}.ipynb", train_notebook(run_id, smoke)))
+            paths.append(write(dest / "train" / f"stage_{stage}" / f"{run_id}.ipynb", train_notebook(run_id, smoke), overwrite))
 
     # Predict Notebooks
     paths.append(write(dest / "predict" / "zeroshot.ipynb", notebook(
         "Zero-shot flan-t5-small", "Prediksi dev tanpa training. Device: laptop RTX 4050.", "SMOKE = False",
-        f'# Prediction\nimport predict\n\npredict.predict("{ZEROSHOT_ID}", "dev", 1, SMOKE)')))
+        f'# Prediction\nimport predict\n\npredict.predict("{ZEROSHOT_ID}", "dev", 1, SMOKE)'), overwrite))
     paths.append(write(dest / "predict" / "test.ipynb", notebook(
-        "Prediksi test", "Dijalankan sekali setelah tahap E selesai, di tiap device untuk run miliknya.",
+        "Prediksi test", "Dijalankan sekali setelah tahap F selesai, di tiap device untuk run miliknya.",
         "SMOKE = False",
         "# Prediction\nimport predict\nimport runs\n\n"
-        "final = runs.load_winners(SMOKE)[\"e\"]\n"
+        "final = runs.load_winners(SMOKE)[\"f\"]\n"
         "for run_id in predict.trained_runs(SMOKE):\n"
         "    predict.predict(run_id, \"test\", 1, SMOKE)\n"
-        "    # beam pemenang tahap E\n"
+        "    # beam pemenang tahap F\n"
         "    if final[\"opts\"][\"beams\"] > 1 and run_id in runs.run_ids(final):\n"
         "        predict.predict(run_id, \"test\", final[\"opts\"][\"beams\"], SMOKE)\n"
-        f"if not (ON_COLAB or ON_KAGGLE):\n    predict.predict(\"{ZEROSHOT_ID}\", \"test\", 1, SMOKE)")))
-    if "d" in win:
-        paths.append(write(dest / "predict" / "stage_e.ipynb", notebook(
-            "Tahap E: beam 4", "Prediksi dev beam 4 untuk pemenang tahap D, di tiap device untuk run miliknya.",
+        f"if not (ON_COLAB or ON_KAGGLE):\n    predict.predict(\"{ZEROSHOT_ID}\", \"test\", 1, SMOKE)"), overwrite))
+    if "e" in win:
+        paths.append(write(dest / "predict" / "stage_f.ipynb", notebook(
+            "Tahap F: beam 4", "Prediksi dev beam 4 untuk pemenang tahap E, di tiap device untuk run miliknya.",
             "SMOKE = False",
             "# Prediction\nimport predict\nimport runs\n\n"
-            "for run_id in runs.run_ids(runs.load_winners(SMOKE)[\"d\"]):\n"
+            "for run_id in runs.run_ids(runs.load_winners(SMOKE)[\"e\"]):\n"
             "    if run_id in predict.trained_runs(SMOKE):\n"
-            "        predict.predict(run_id, \"dev\", 4, SMOKE)")))
+            "        predict.predict(run_id, \"dev\", 4, SMOKE)"), overwrite))
 
     # Eval Notebooks
-    for stage in "abcde":
+    for stage in "abcdef":
         extra = "import baseline\n\nbaseline.run_baselines(SMOKE)\n" if stage == "a" else ""
         paths.append(write(dest / "eval" / f"stage_{stage}.ipynb", notebook(
             f"Eval tahap {stage.upper()}", "Membaca file prediksi di laptop. Zip dari Colab/Kaggle masuk ke "
@@ -123,10 +126,10 @@ def generate(dest=NB_DIR, smoke=False):
             "# Evaluation\nimport collect\nimport evaluate\nimport make_notebooks\n" + extra +
             "\ncollect.main()\n"
             f"evaluate.stage_report(\"{stage}\", smoke=SMOKE)\n"
-            "if not SMOKE:\n    make_notebooks.generate()")))
+            "if not SMOKE:\n    make_notebooks.generate()"), overwrite))
     paths.append(write(dest / "eval" / "final.ipynb", notebook(
         "Eval final (test)", "Membaca prediksi test semua run dan baseline.", "SMOKE = False",
-        "# Evaluation\nimport collect\nimport evaluate\n\ncollect.main()\nevaluate.final_report(smoke=SMOKE)")))
+        "# Evaluation\nimport collect\nimport evaluate\n\ncollect.main()\nevaluate.final_report(smoke=SMOKE)"), overwrite))
     return paths
 
 
@@ -134,8 +137,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dest", type=Path, default=NB_DIR)
     parser.add_argument("--smoke", action="store_true")
+    parser.add_argument("--overwrite", action="store_true", help="timpa notebook yang sudah ada")
     args = parser.parse_args()
-    paths = generate(args.dest, args.smoke)
+    paths = generate(args.dest, args.smoke, args.overwrite)
     print(f"{len(paths)} notebook di {args.dest}")
 
 

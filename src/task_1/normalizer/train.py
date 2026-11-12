@@ -131,9 +131,9 @@ def load_last(path, model, opt, sched, device):
 
 
 # Training Loop
-def train(run_id, smoke=False, backbone=None, stop_after=None, hours=None):
+def train(run_id, smoke=False, stop_after=None, hours=None):
     """run id -> folder run"""
-    spec = get_run(run_id, smoke, backbone)
+    spec = get_run(run_id, smoke)
     out_dir = run_dir(run_id, smoke)
     if (out_dir / "DONE").exists():
         print(f"{run_id} sudah selesai")
@@ -244,7 +244,6 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", action="append", required=True, help="run id, boleh berulang")
     parser.add_argument("--smoke", action="store_true")
-    parser.add_argument("--backbone", help="backbone pengganti pemenang tahap A saat smoke")
     parser.add_argument("--stop-after", type=int, help="berhenti setelah N step (uji resume)")
     parser.add_argument("--hours", type=float, help="batas waktu antrean")
     args = parser.parse_args()
@@ -253,7 +252,7 @@ def main():
         left = None if args.hours is None else args.hours - (time.time() - started) / 3600
         if left is not None and left <= 0:
             break
-        out_dir = train(run_id, args.smoke, args.backbone, args.stop_after, left)
+        out_dir = train(run_id, args.smoke, args.stop_after, left)
         if not (out_dir / "DONE").exists():
             break
 

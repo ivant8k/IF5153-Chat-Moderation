@@ -120,9 +120,9 @@ def write_report(folder, summaries, refs, pairs, decision):
 
 
 # Stage Configurations
-def stage_e_configs(win):
-    """pemenang tahap D -> varian inferensi"""
-    prev = need(win, "d")
+def stage_f_configs(win):
+    """pemenang tahap E -> varian inferensi"""
+    prev = need(win, "e")
     out = []
     for beams in (1, 4):
         for wl in (0, 1):
@@ -138,7 +138,7 @@ def stage_report(stage, smoke=False):
     """tahap -> results/stage_x/{table, metrics, pairs}.tsv + decision.json"""
     ctx = Context(smoke)
     win = load_winners(smoke)
-    configs = stage_e_configs(win) if stage == "e" else stage_configs(stage, win)
+    configs = stage_f_configs(win) if stage == "f" else stage_configs(stage, win)
     summaries = []
     for c in configs:
         s = summarize_config(c["name"], run_ids(c), "dev", c.get("opts", DEFAULT_OPTS), ctx)
@@ -167,20 +167,70 @@ def stage_report(stage, smoke=False):
     decision = {"stage": stage, "winner": c["name"], "prefix": c["prefix"], "params": c["params"],
                 "best_score": best["row"]["config"], "macro_err": float(winner["row"]["macro_err"]),
                 "seeds": winner["row"]["seeds"], "date": time.strftime("%Y-%m-%d %H:%M")}
-    if stage == "e":
+    if stage == "f":
         decision["opts"] = c["opts"]
     write_report(results_dir(smoke) / f"stage_{stage}", summaries, refs, pairs, decision)
+    if stage == "e":
+        transfer_report({s["config"]["name"]: s for s in summaries}, ctx, results_dir(smoke) / "stage_e")
     print(f"pemenang tahap {stage}: {c['name']} ({c['prefix']})")
     return decision
+
+
+def rel_pct(delta, base):
+    # perubahan relatif terhadap |base|, tanda mengikuti delta
+    return 100 * delta / abs(base) if base else float("nan")
+
+
+def transfer_row(model, base, final, ctx):
+    """config dasar vs config terpilih satu backbone -> perubahan absolut dan relatif"""
+    samples = boot_delta(final["arrays"], base["arrays"], N_BOOT)
+    low, high, p = ci_and_p(samples)
+    b = base["row"]["macro_err"]
+    rows = [{"model": model, "set": "macro", "base": b, "final": final["row"]["macro_err"],
+             "delta": float(samples.mean()), "rel_pct": rel_pct(float(samples.mean()), b),
+             "ci_low": low, "ci_high": high, "p": p}]
+    for i, name in enumerate(set_names("dev")):
+        delta = boot_delta([final["arrays"][i]], [base["arrays"][i]], N_BOOT)
+        low, high, p = ci_and_p(delta)
+        b = base["row"][f"err_{name}"]
+        rows.append({"model": model, "set": name, "base": b, "final": final["row"][f"err_{name}"],
+                     "delta": float(delta.mean()), "rel_pct": rel_pct(float(delta.mean()), b),
+                     "ci_low": low, "ci_high": high, "p": p})
+    return rows
+
+
+def transfer_report(by_name, ctx, folder):
+    """proxy vs pemenang A: perubahan config dasar -> config terpilih, arah dan besaran relatif"""
+    if "target-final" not in by_name:
+        print("transfer: tanpa proxy, config terpilih sama dengan dasar, atau run belum lengkap, dilewati")
+        return
+    proxy = by_name["d-final"]["config"]["params"]["backbone"]
+    target = by_name["target-final"]["config"]["params"]["backbone"]
+    proxy_base = summarize_config("proxy-base", run_ids({"prefix": f"a_{proxy}"}), "dev", DEFAULT_OPTS, ctx)
+    rows = (transfer_row(proxy, proxy_base, by_name["d-final"], ctx)
+            + transfer_row(target, by_name["target-base"], by_name["target-final"], ctx))
+    # ringkasan per set: arah sama dan rasio perubahan relatif
+    for name in ["macro"] + set_names("dev"):
+        px = next(r for r in rows if r["model"] == proxy and r["set"] == name)
+        bt = next(r for r in rows if r["model"] == target and r["set"] == name)
+        rows.append({"model": "target/proxy", "set": name, "base": float("nan"), "final": float("nan"),
+                     "delta": float(np.sign(px["delta"]) == np.sign(bt["delta"])),
+                     "rel_pct": bt["rel_pct"] / px["rel_pct"] if px["rel_pct"] and not math.isnan(px["rel_pct"])
+                     else float("nan"),
+                     "ci_low": float("nan"), "ci_high": float("nan"), "p": float("nan")})
+    write_tsv(folder / "transfer.tsv", [fmt_row(r) for r in rows], list(rows[0]))
+    for r in rows:
+        print(f"transfer {r['model']:14s} {r['set']:9s} base {r['base']:.4f} final {r['final']:.4f}"
+              f" delta {r['delta']:+.4f} rel {r['rel_pct']:+.2f}% CI [{r['ci_low']:+.4f}, {r['ci_high']:+.4f}]")
 
 
 def final_report(smoke=False):
     """semua config + baseline -> results/final (test set)"""
     ctx = Context(smoke)
     win = load_winners(smoke)
-    final = need(win, "e")
+    final = need(win, "f")
     groups, seen = [], set()
-    for stage in "abcd":
+    for stage in "abcde":
         for c in stage_configs(stage, win):
             if c["prefix"] not in seen:
                 seen.add(c["prefix"])
@@ -205,7 +255,7 @@ def final_report(smoke=False):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", required=True, choices=["a", "b", "c", "d", "e", "final"])
+    parser.add_argument("--stage", required=True, choices=["a", "b", "c", "d", "e", "f", "final"])
     parser.add_argument("--smoke", action="store_true")
     args = parser.parse_args()
     if args.stage == "final":

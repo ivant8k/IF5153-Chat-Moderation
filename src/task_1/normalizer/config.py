@@ -28,6 +28,7 @@ BACKBONES = {
                    "budget": 1024, "gen_batch": 32, "cost": 3},
 }
 ZEROSHOT_BACKBONE = "flan-t5-small"
+PROXIES = {"byt5-small": "flan-t5-small"}    # pemenang A -> backbone tahap B-D
 
 # Data Sets
 TRAIN_FILES = {"mln": "mln/train.tsv", "conda": "conda/train.tsv", "aug": "augmented/train.tsv"}
@@ -63,4 +64,3 @@ NONINF_MARGIN = 0.01
 SMOKE_TRAIN_ROWS = 96
 SMOKE_EVAL_ROWS = 16
 SMOKE_EPOCHS = 2
-SMOKE_BACKBONE = "t5-small"
