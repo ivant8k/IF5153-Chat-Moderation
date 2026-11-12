@@ -1,0 +1,15 @@
+2026-11-13 02:41:50 mulai b_a1_s2026 | train 2360 baris | 74 step/epoch | budget 4096
+2026-11-13 02:45:35 epoch 0 selesai | loss 0.2574 | macro-ERR 0.2745 | terbaik 0.2745 (epoch 0)
+2026-11-13 02:47:18 epoch 1 selesai | loss 0.1030 | macro-ERR 0.3259 | terbaik 0.3259 (epoch 1)
+2026-11-13 02:47:37 epoch 2 step 52/74 loss 0.0738
+2026-11-13 02:49:54 epoch 2 selesai | loss 0.0722 | macro-ERR 0.3258 | terbaik 0.3259 (epoch 1)
+2026-11-13 02:51:36 epoch 3 selesai | loss 0.0566 | macro-ERR 0.3284 | terbaik 0.3284 (epoch 3)
+2026-11-13 02:53:17 epoch 4 selesai | loss 0.0415 | macro-ERR 0.3269 | terbaik 0.3284 (epoch 3)
+2026-11-13 02:53:27 epoch 5 step 30/74 loss 0.0343
+2026-11-13 02:54:50 epoch 5 selesai | loss 0.0322 | macro-ERR 0.3448 | terbaik 0.3448 (epoch 5)
+2026-11-13 02:56:24 epoch 6 selesai | loss 0.0244 | macro-ERR 0.3439 | terbaik 0.3448 (epoch 5)
+2026-11-13 02:57:56 epoch 7 selesai | loss 0.0201 | macro-ERR 0.3467 | terbaik 0.3467 (epoch 7)
+2026-11-13 02:57:59 epoch 8 step 8/74 loss 0.0191
+2026-11-13 02:59:33 epoch 8 selesai | loss 0.0158 | macro-ERR 0.3493 | terbaik 0.3493 (epoch 8)
+2026-11-13 03:01:03 epoch 9 selesai | loss 0.0143 | macro-ERR 0.3513 | terbaik 0.3513 (epoch 9)
+2026-11-13 03:01:04 selesai b_a1_s2026 | macro-ERR 0.3513 | epoch terbaik 9
