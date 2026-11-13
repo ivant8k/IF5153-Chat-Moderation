@@ -1,0 +1,16 @@
+{
+  "stage": "b",
+  "winner": "c1",
+  "prefix": "a_flan-t5-small",
+  "params": {
+    "mix": "c",
+    "up": 1,
+    "fmt": "delim",
+    "lr": 0.001,
+    "backbone": "flan-t5-small"
+  },
+  "best_score": "c1",
+  "macro_err": 0.7065923963229194,
+  "seeds": 3,
+  "date": "2026-11-13 22:39"
+}
