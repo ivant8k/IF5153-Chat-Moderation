@@ -153,11 +153,12 @@ def stage_report(stage, smoke=False):
             s = summarize_config(rid, [rid], "dev", DEFAULT_OPTS, ctx)
             if s is not None:
                 refs.append(s)
-    if not summaries:
+    candidates = [s for s in summaries if not s["config"].get("probe")]
+    if not candidates:
         raise RuntimeError(f"tahap {stage}: belum ada run dengan prediksi dev")
 
     # Winner Selection
-    valid = [s for s in summaries if s["row"]["validity"] >= MIN_VALIDITY] or summaries
+    valid = [s for s in candidates if s["row"]["validity"] >= MIN_VALIDITY] or candidates
     best = max(valid, key=lambda s: s["row"]["macro_err"])
     margin = NONINF_MARGIN if stage == "c" else None
     pairs = compare(best, [s for s in valid if s is not best], margin)
@@ -181,47 +182,69 @@ def rel_pct(delta, base):
     return 100 * delta / abs(base) if base else float("nan")
 
 
-def transfer_row(model, base, final, ctx):
-    """config dasar vs config terpilih satu backbone -> perubahan absolut dan relatif"""
-    samples = boot_delta(final["arrays"], base["arrays"], N_BOOT)
-    low, high, p = ci_and_p(samples)
-    b = base["row"]["macro_err"]
-    rows = [{"model": model, "set": "macro", "base": b, "final": final["row"]["macro_err"],
-             "delta": float(samples.mean()), "rel_pct": rel_pct(float(samples.mean()), b),
-             "ci_low": low, "ci_high": high, "p": p}]
-    for i, name in enumerate(set_names("dev")):
-        delta = boot_delta([final["arrays"][i]], [base["arrays"][i]], N_BOOT)
-        low, high, p = ci_and_p(delta)
-        b = base["row"][f"err_{name}"]
-        rows.append({"model": model, "set": name, "base": b, "final": final["row"][f"err_{name}"],
-                     "delta": float(delta.mean()), "rel_pct": rel_pct(float(delta.mean()), b),
-                     "ci_low": low, "ci_high": high, "p": p})
+def transfer_row(model, z, base, final):
+    """config dasar vs config Z satu backbone -> perubahan absolut dan relatif per set"""
+    rows = []
+    for i, name in enumerate(["macro"] + set_names("dev")):
+        if name == "macro":
+            samples = boot_delta(final["arrays"], base["arrays"], N_BOOT)
+            b, f = base["row"]["macro_err"], final["row"]["macro_err"]
+        else:
+            samples = boot_delta([final["arrays"][i - 1]], [base["arrays"][i - 1]], N_BOOT)
+            b, f = base["row"][f"err_{name}"], final["row"][f"err_{name}"]
+        low, high, p = ci_and_p(samples)
+        rows.append({"model": model, "z": z, "set": name, "base": b, "final": f, "delta": float(samples.mean()),
+                     "rel_pct": rel_pct(float(samples.mean()), b), "ci_low": low, "ci_high": high, "p": p})
     return rows
 
 
 def transfer_report(by_name, ctx, folder):
-    """proxy vs pemenang A: perubahan config dasar -> config terpilih, arah dan besaran relatif"""
-    if "target-final" not in by_name:
-        print("transfer: tanpa proxy, config terpilih sama dengan dasar, atau run belum lengkap, dilewati")
+    """proxy vs pemenang A: perubahan config dasar -> config Z, arah dan besaran relatif"""
+    if "target-base" not in by_name:
+        print("transfer: tanpa proxy, dilewati")
         return
     proxy = by_name["d-final"]["config"]["params"]["backbone"]
-    target = by_name["target-final"]["config"]["params"]["backbone"]
+    target = by_name["target-base"]["config"]["params"]["backbone"]
     proxy_base = summarize_config("proxy-base", run_ids({"prefix": f"a_{proxy}"}), "dev", DEFAULT_OPTS, ctx)
-    rows = (transfer_row(proxy, proxy_base, by_name["d-final"], ctx)
-            + transfer_row(target, by_name["target-base"], by_name["target-final"], ctx))
-    # ringkasan per set: arah sama dan rasio perubahan relatif
-    for name in ["macro"] + set_names("dev"):
-        px = next(r for r in rows if r["model"] == proxy and r["set"] == name)
-        bt = next(r for r in rows if r["model"] == target and r["set"] == name)
-        rows.append({"model": "target/proxy", "set": name, "base": float("nan"), "final": float("nan"),
-                     "delta": float(np.sign(px["delta"]) == np.sign(bt["delta"])),
-                     "rel_pct": bt["rel_pct"] / px["rel_pct"] if px["rel_pct"] and not math.isnan(px["rel_pct"])
-                     else float("nan"),
-                     "ci_low": float("nan"), "ci_high": float("nan"), "p": float("nan")})
+
+    # Transfer Points
+    points = []
+    if "target-final" in by_name:
+        points.append(("final", by_name["d-final"], by_name["target-final"]))
+    for name, s in by_name.items():
+        if s["config"].get("probe"):
+            proxy_z = summarize_config(name, run_ids({"prefix": s["config"]["probe"]}), "dev", DEFAULT_OPTS, ctx)
+            points.append((name.removeprefix("probe-"), proxy_z, s))
+    if not points:
+        print("transfer: run config terpilih atau probe belum ada, dilewati")
+        return
+
+    rows = []
+    for z, proxy_z, target_z in points:
+        px = transfer_row(proxy, z, proxy_base, proxy_z)
+        tg = transfer_row(target, z, by_name["target-base"], target_z)
+        rows += px + tg
+        # arah sama (1/0) dan rasio perubahan relatif target/proxy
+        for a, b in zip(px, tg):
+            ratio = b["rel_pct"] / a["rel_pct"] if a["rel_pct"] and not math.isnan(a["rel_pct"]) else float("nan")
+            rows.append({"model": "target/proxy", "z": z, "set": a["set"], "base": float("nan"),
+                         "final": float("nan"), "delta": float(np.sign(a["delta"]) == np.sign(b["delta"])),
+                         "rel_pct": ratio, "ci_low": float("nan"), "ci_high": float("nan"), "p": float("nan")})
     write_tsv(folder / "transfer.tsv", [fmt_row(r) for r in rows], list(rows[0]))
+
+    # Transfer Summary
+    macro_px = [r["rel_pct"] for r in rows if r["model"] == proxy and r["set"] == "macro"]
+    macro_tg = [r["rel_pct"] for r in rows if r["model"] == target and r["set"] == "macro"]
+    agree = [r["delta"] for r in rows if r["model"] == "target/proxy" and r["set"] == "macro"]
+    summary = {"proxy": proxy, "target": target, "points": [p[0] for p in points],
+               "direction_agree": f"{int(sum(agree))}/{len(agree)}",
+               "rel_pct_proxy": macro_px, "rel_pct_target": macro_tg,
+               "pearson_rel_pct": float(np.corrcoef(macro_px, macro_tg)[0, 1]) if len(points) >= 3 else None}
+    write_json(folder / "transfer_summary.json", summary)
     for r in rows:
-        print(f"transfer {r['model']:14s} {r['set']:9s} base {r['base']:.4f} final {r['final']:.4f}"
+        print(f"transfer {r['model']:14s} {r['z']:8s} {r['set']:9s} base {r['base']:.4f} final {r['final']:.4f}"
               f" delta {r['delta']:+.4f} rel {r['rel_pct']:+.2f}% CI [{r['ci_low']:+.4f}, {r['ci_high']:+.4f}]")
+    print("transfer ringkas:", summary)
 
 
 def final_report(smoke=False):

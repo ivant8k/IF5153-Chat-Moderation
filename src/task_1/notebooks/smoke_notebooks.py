@@ -13,7 +13,7 @@ sys.path.insert(0, str(NB_DIR.parent / "normalizer"))
 
 from common import write_json
 from config import OUT, SMOKE_RESULTS
-from runs import a_config
+from runs import a_config, load_winners, stage_b_base
 from make_notebooks import generate
 
 TMP_NB = OUT / "tmp" / "smoke" / "notebooks"
@@ -28,6 +28,14 @@ def execute(path):
     print(f"ok {time.time() - start:5.1f}s {path.relative_to(TMP_NB)}", flush=True)
 
 
+def prune_checkpoints():
+    """checkpoint smoke selain run pemenang tahap -> dihapus"""
+    keep = {w["prefix"] for w in load_winners(True).values()}
+    for ckpt in (OUT / "tmp" / "smoke" / "runs").glob("*/checkpoints"):
+        if ckpt.parent.name.rsplit("_s", 1)[0] not in keep:
+            shutil.rmtree(ckpt)
+
+
 def run_folder(folder):
     for path in sorted(folder.glob("*.ipynb")):
         execute(path)
@@ -36,6 +44,7 @@ def run_folder(folder):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--winner-a", help="paksa pemenang tahap A, untuk menguji jalur proxy")
+    parser.add_argument("--base-d", action="store_true", help="paksa pemenang D = config dasar, untuk menguji probe")
     args = parser.parse_args()
     for sub in ("runs", "results", "notebooks"):
         shutil.rmtree(OUT / "tmp" / "smoke" / sub, ignore_errors=True)
@@ -47,6 +56,9 @@ def main():
         execute(TMP_NB / "eval" / f"stage_{stage}.ipynb")
         if stage == "a" and args.winner_a:
             write_json(SMOKE_RESULTS / "stage_a" / "decision.json", {"stage": "a", **a_config(args.winner_a)})
+        if stage == "d" and args.base_d:
+            write_json(SMOKE_RESULTS / "stage_d" / "decision.json", {"stage": "d", **stage_b_base(load_winners(True))})
+        prune_checkpoints()
     generate(TMP_NB, smoke=True)
     for name in ("predict/stage_f", "eval/stage_f", "predict/test", "eval/final"):
         execute(TMP_NB / f"{name}.ipynb")

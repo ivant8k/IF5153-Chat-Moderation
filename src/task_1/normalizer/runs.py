@@ -1,7 +1,7 @@
 """Runs: tahap + keputusan -> konfigurasi dan run id"""
 from common import read_json
-from config import (BACKBONES, BASE, LANES, PROXIES, RESULTS, RUNS, SEEDS, SMOKE_RESULTS, SMOKE_RUNS,
-                    ZEROSHOT_BACKBONE)
+from config import (BACKBONES, BASE, LANES, PROBE_SEEDS, PROBES, PROXIES, RESULTS, RUNS, SEEDS, SMOKE_RESULTS,
+                    SMOKE_RUNS, ZEROSHOT_BACKBONE)
 
 ZEROSHOT_ID = "a_zeroshot-flan"
 BASELINES = ["base_lai", "base_mfr-mln", "base_mfr-all", "base_rule"]
@@ -81,15 +81,21 @@ def stage_configs(stage, win=None):
             return out
         base, final = a_config(target)["params"], {**prev["params"], "backbone": target}
         out.append({"name": "target-base", "prefix": f"a_{target}", "params": base, "cost": 2})
-        # config terpilih sama dengan config dasar -> tidak ada run baru
         if final != base:
             out.append({"name": "target-final", "prefix": f"e_{target}", "params": final, "cost": 3})
+            return out
+        # config terpilih = config dasar -> probe: config proxy lain diulang di pemenang A, tidak ikut dipilih
+        for stage_z, name in PROBES:
+            z = next(c for c in stage_configs(stage_z, win) if c["name"] == name)
+            out.append({"name": f"probe-{name}", "prefix": f"e_{target}-{name}",
+                        "params": {**z["params"], "backbone": target}, "cost": 9,
+                        "probe": z["prefix"], "run_seeds": PROBE_SEEDS})
         return out
     raise ValueError(stage)
 
 
 def run_ids(config):
-    return [f"{config['prefix']}_s{seed}" for seed in SEEDS]
+    return [f"{config['prefix']}_s{seed}" for seed in config.get("run_seeds", SEEDS)]
 
 
 def get_run(run_id, smoke=False):

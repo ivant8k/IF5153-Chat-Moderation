@@ -29,6 +29,8 @@ BACKBONES = {
 }
 ZEROSHOT_BACKBONE = "flan-t5-small"
 PROXIES = {"byt5-small": "flan-t5-small"}    # pemenang A -> backbone tahap B-D
+PROBES = [("b", "a1"), ("b", "b1"), ("c", "plain"), ("d", "lr3e-3")]    # config proxy yang diulang di pemenang A
+PROBE_SEEDS = (2026,)
 
 # Data Sets
 TRAIN_FILES = {"mln": "mln/train.tsv", "conda": "conda/train.tsv", "aug": "augmented/train.tsv"}
