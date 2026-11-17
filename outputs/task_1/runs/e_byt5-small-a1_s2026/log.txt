@@ -1,0 +1,14 @@
+2026-11-16 22:43:12 mulai e_byt5-small-a1_s2026 | train 2360 baris | 74 step/epoch | budget 1024
+2026-11-16 22:54:23 epoch 0 selesai | loss 0.4006 | macro-ERR 0.2303 | terbaik 0.2303 (epoch 0)
+2026-11-16 23:08:41 epoch 1 selesai | loss 0.0678 | macro-ERR 0.3123 | terbaik 0.3123 (epoch 1)
+2026-11-16 23:10:19 epoch 2 step 52/74 loss 0.0444
+2026-11-16 23:24:55 epoch 2 selesai | loss 0.0422 | macro-ERR 0.3651 | terbaik 0.3651 (epoch 2)
+2026-11-16 23:46:07 epoch 3 selesai | loss 0.0330 | macro-ERR 0.3091 | terbaik 0.3651 (epoch 2)
+2026-11-16 23:57:09 epoch 4 selesai | loss 0.0222 | macro-ERR 0.4017 | terbaik 0.4017 (epoch 4)
+2026-11-16 23:58:09 epoch 5 step 30/74 loss 0.0175
+2026-11-17 00:09:11 epoch 5 selesai | loss 0.0172 | macro-ERR 0.4089 | terbaik 0.4089 (epoch 5)
+2026-11-17 00:22:26 epoch 6 selesai | loss 0.0141 | macro-ERR 0.4259 | terbaik 0.4259 (epoch 6)
+2026-11-17 00:33:15 epoch 7 selesai | loss 0.0102 | macro-ERR 0.4239 | terbaik 0.4259 (epoch 6)
+2026-11-17 00:33:31 epoch 8 step 8/74 loss 0.0073
+2026-11-17 00:45:30 epoch 8 selesai | loss 0.0082 | macro-ERR 0.4014 | terbaik 0.4259 (epoch 6)
+2026-11-17 00:45:33 selesai e_byt5-small-a1_s2026 | macro-ERR 0.4259 | epoch terbaik 6

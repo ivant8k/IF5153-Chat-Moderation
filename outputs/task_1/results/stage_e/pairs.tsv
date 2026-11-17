@@ -1,0 +1,2 @@
+config	vs	delta	ci_low	ci_high	p	best_better_seeds	common_seeds	acceptable	p_holm
+d-final	target-base	-0.0686	-0.0816	-0.0558	0.0000	3	3	False	0.0000
