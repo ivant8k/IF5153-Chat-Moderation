@@ -1,12 +1,12 @@
 {
   "bench": {
-    "accent": 526,
-    "drop": 393,
-    "leet": 514,
-    "leet_repeat": 519,
-    "repeat": 551,
+    "accent": 523,
+    "drop": 406,
+    "leet": 512,
+    "leet_repeat": 517,
+    "repeat": 548,
     "spaced": 531,
-    "symbol": 551
+    "symbol": 548
   },
   "dev": {
     "accent": 670,

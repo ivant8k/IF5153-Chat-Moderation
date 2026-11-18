@@ -6,7 +6,7 @@ import time
 import numpy as np
 
 from common import load_protected, load_set, load_toxic, pred_tag, read_json, read_preds, set_names, write_json, write_tsv
-from config import MIN_VALIDITY, N_BOOT, NONINF_MARGIN, SMOKE_EVAL_ROWS
+from config import EXTRA_SETS, MIN_VALIDITY, N_BOOT, NONINF_MARGIN, SMOKE_EVAL_ROWS
 from metrics import boot_delta, ci_and_p, err_arrays, holm, score_set, summarize
 from runs import BASELINES, ZEROSHOT_ID, load_winners, need, results_dir, run_dir, run_ids, stage_configs
 
@@ -58,24 +58,26 @@ def summarize_config(name, runs, split, opts, ctx):
     if not per_seed:
         return None
     sets = set_names(split)
+    main = [n for n in sets if n not in EXTRA_SETS]
     metrics = {rid: {n: summarize(s[n], [r["weight"] for r in ctx.rows(n)], [r.get("op") for r in ctx.rows(n)])
                      for n in sets} for rid, s in per_seed.items()}
-    seed_macro = {rid: macro([m[n]["err"] for n in sets]) for rid, m in metrics.items()}
-    arrays = []
+    seed_macro = {rid: macro([m[n]["err"] for n in main]) for rid, m in metrics.items()}
+    set_arrays = {}
     for n in sets:
         weights = [r["weight"] for r in ctx.rows(n)]
         per = [err_arrays(s[n], weights) for s in per_seed.values()]
         # correct dirata-rata antar seed sebelum bootstrap
-        arrays.append([np.mean([p[0] for p in per], axis=0), per[0][1], per[0][2]])
+        set_arrays[n] = [np.mean([p[0] for p in per], axis=0), per[0][1], per[0][2]]
+    arrays = [set_arrays[n] for n in main]
     row = {"config": name, "seeds": len(per_seed), "macro_err": np.mean(list(seed_macro.values())),
            "macro_err_std": np.std(list(seed_macro.values())),
-           "validity": np.mean([m[n]["validity"] for m in metrics.values() for n in sets])}
+           "validity": np.mean([m[n]["validity"] for m in metrics.values() for n in main])}
     for n in sets:
         row[f"err_{n}"] = np.mean([m[n]["err"] for m in metrics.values()])
     long = [{"config": name, "set": n, "metric": k, "mean": np.mean([m[n][k] for m in metrics.values()]),
              "std": np.std([m[n][k] for m in metrics.values()])}
             for n in sets for k in metrics[next(iter(metrics))][n] if k != "rows"]
-    return {"row": row, "long": long, "arrays": arrays, "seed_macro": seed_macro}
+    return {"row": row, "long": long, "arrays": arrays, "set_arrays": set_arrays, "seed_macro": seed_macro}
 
 
 def seed_of(run_id):
@@ -274,6 +276,20 @@ def final_report(smoke=False):
                 p["config"], p["vs"] = "final", ref
                 pairs.append(p)
     write_report(results_dir(smoke) / "final", summaries, [], pairs, None)
+
+    # Natural Gold
+    extra = []
+    for ref in ["base_mfr-all", "base_rule", ZEROSHOT_ID]:
+        for n in EXTRA_SETS:
+            if ref in by_name:
+                samples = boot_delta([by_name["final"]["set_arrays"][n]], [by_name[ref]["set_arrays"][n]], N_BOOT)
+                low, high, p = ci_and_p(samples)
+                extra.append({"config": "final", "vs": ref, "set": n, "delta": float(samples.mean()),
+                              "ci_low": low, "ci_high": high, "p": p})
+    if extra:
+        write_tsv(results_dir(smoke) / "final" / "natural_pairs.tsv", [fmt_row(x) for x in extra], list(extra[0]))
+        for x in extra:
+            print(f"{x['set']}: final vs {x['vs']} delta {x['delta']:+.4f} CI [{x['ci_low']:+.4f}, {x['ci_high']:+.4f}]")
 
 
 def main():

@@ -37,7 +37,9 @@ TRAIN_FILES = {"mln": "mln/train.tsv", "conda": "conda/train.tsv", "aug": "augme
 MIXES = {"a": ["mln"], "b": ["mln", "conda"], "c": ["mln", "conda", "aug"]}
 DEV_SETS = {"mln_dev": "mln/dev.tsv", "conda_dev": "conda/dev.tsv", "aug_dev": "augmented/conda_dev.tsv"}
 TEST_SETS = {"mln_test": "mln/test.tsv", "gold_conda": "gold", "conda_bench": "conda/bench.tsv",
-             "aug_bench": "augmented/conda_bench.tsv", "noisyhate": "noisyhate/test.tsv"}
+             "aug_bench": "augmented/conda_bench.tsv", "noisyhate": "noisyhate/test.tsv",
+             "gold_conda_natural": "gold_natural"}
+EXTRA_SETS = ["gold_conda_natural"]    # dilaporkan terpisah, tidak masuk macro-ERR
 
 # Text Format
 DELIM = " | "
