@@ -1,0 +1,4 @@
+split,rows,dup_text,empty_raw_%,empty_fixed_%,single_span_%,multi_span_%,changed_by_fix
+train,7939,0,6.11,6.15,67.68,26.17,32
+trial,690,0,6.23,6.23,65.22,28.55,4
+test,2000,0,19.7,19.7,70.35,9.95,1
