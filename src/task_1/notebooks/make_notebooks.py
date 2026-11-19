@@ -69,9 +69,15 @@ def train_notebook(run_id, smoke):
                     "# Training\nimport train\n\ntrain.train(RUN_ID, smoke=SMOKE)")
 
 
+def code_cells(nb):
+    return [c.source for c in nb.cells if c.cell_type == "code"]
+
+
 def write(path, nb, overwrite):
     # notebook yang sudah ada (bisa berisi output) tidak ditimpa
     if path.exists() and not overwrite:
+        if code_cells(nbformat.read(path, as_version=4)) != code_cells(nb):
+            print(f"usang, tidak ditimpa (hapus file atau pakai --overwrite): {path}")
         return path
     path.parent.mkdir(parents=True, exist_ok=True)
     nbformat.write(nb, path)
