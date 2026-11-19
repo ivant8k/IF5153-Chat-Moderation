@@ -1,0 +1,11 @@
+{
+  "id": "a_zeroshot-flan",
+  "kind": "zeroshot",
+  "backbone": "flan-t5-small",
+  "fmt": "plain",
+  "smoke": false,
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "precision": "tf32",
+  "vram_gb": 6.4,
+  "torch": "2.15.0+cu132"
+}
