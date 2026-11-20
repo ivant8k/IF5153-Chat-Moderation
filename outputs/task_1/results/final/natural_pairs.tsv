@@ -1,0 +1,4 @@
+config	vs	set	delta	ci_low	ci_high	p
+final	base_mfr-all	gold_conda_natural	0.0215	0.0044	0.0403	0.0110
+final	base_rule	gold_conda_natural	0.0055	-0.0084	0.0193	0.4320
+final	a_zeroshot-flan	gold_conda_natural	0.8649	0.6664	1.0995	0.0000
