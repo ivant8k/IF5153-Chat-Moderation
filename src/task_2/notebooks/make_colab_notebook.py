@@ -9,7 +9,7 @@ import os, subprocess, sys
 from pathlib import Path
 
 REPO_URL = "https://github.com/ivant8k/IF5153-Chat-Moderation.git"
-BRANCH = "main"
+BRANCH = "feat/task-2"
 DRIVE_JIGSAW = "/content/drive/MyDrive/tubes_nlp/jigsaw"      # folder berisi 3 csv Jigsaw
 DRIVE_OUT = "/content/drive/MyDrive/tubes_nlp/task_2_runs"    # checkpoint + hasil (awet)
 
