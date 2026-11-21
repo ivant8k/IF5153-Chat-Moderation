@@ -1,6 +1,6 @@
 {
   "conda_changed_lines": {
-    "bench": 886,
+    "bench": 891,
     "dev": 1151,
     "train": 9973
   },
@@ -12,8 +12,8 @@
   "failures": {},
   "gold": {
     "lines": 300,
-    "silver_line_agreement": 0.9633,
-    "silver_slot_agreement": 0.9885
+    "silver_line_agreement": 0.9333,
+    "silver_slot_agreement": 0.9789
   },
   "label_origin_slots": {
     "auto": 127743,

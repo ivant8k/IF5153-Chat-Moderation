@@ -1,0 +1,4 @@
+config	seeds	macro_err	macro_err_std	validity	err_mln_dev	err_conda_dev	err_aug_dev
+lr1e-3	3	0.7066	0.0017	0.9963	0.5431	0.7759	0.8008
+lr3e-4	3	0.7111	0.0028	0.9979	0.5864	0.7719	0.7752
+lr3e-3	3	0.6056	0.0013	0.9946	0.2900	0.7303	0.7966

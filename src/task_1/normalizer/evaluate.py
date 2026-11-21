@@ -6,7 +6,7 @@ import time
 import numpy as np
 
 from common import load_protected, load_set, load_toxic, pred_tag, read_json, read_preds, set_names, write_json, write_tsv
-from config import MIN_VALIDITY, N_BOOT, NONINF_MARGIN, SMOKE_EVAL_ROWS
+from config import EXTRA_SETS, MIN_VALIDITY, N_BOOT, NONINF_MARGIN, SMOKE_EVAL_ROWS
 from metrics import boot_delta, ci_and_p, err_arrays, holm, score_set, summarize
 from runs import BASELINES, ZEROSHOT_ID, load_winners, need, results_dir, run_dir, run_ids, stage_configs
 
@@ -58,24 +58,26 @@ def summarize_config(name, runs, split, opts, ctx):
     if not per_seed:
         return None
     sets = set_names(split)
+    main = [n for n in sets if n not in EXTRA_SETS]
     metrics = {rid: {n: summarize(s[n], [r["weight"] for r in ctx.rows(n)], [r.get("op") for r in ctx.rows(n)])
                      for n in sets} for rid, s in per_seed.items()}
-    seed_macro = {rid: macro([m[n]["err"] for n in sets]) for rid, m in metrics.items()}
-    arrays = []
+    seed_macro = {rid: macro([m[n]["err"] for n in main]) for rid, m in metrics.items()}
+    set_arrays = {}
     for n in sets:
         weights = [r["weight"] for r in ctx.rows(n)]
         per = [err_arrays(s[n], weights) for s in per_seed.values()]
         # correct dirata-rata antar seed sebelum bootstrap
-        arrays.append([np.mean([p[0] for p in per], axis=0), per[0][1], per[0][2]])
+        set_arrays[n] = [np.mean([p[0] for p in per], axis=0), per[0][1], per[0][2]]
+    arrays = [set_arrays[n] for n in main]
     row = {"config": name, "seeds": len(per_seed), "macro_err": np.mean(list(seed_macro.values())),
            "macro_err_std": np.std(list(seed_macro.values())),
-           "validity": np.mean([m[n]["validity"] for m in metrics.values() for n in sets])}
+           "validity": np.mean([m[n]["validity"] for m in metrics.values() for n in main])}
     for n in sets:
         row[f"err_{n}"] = np.mean([m[n]["err"] for m in metrics.values()])
     long = [{"config": name, "set": n, "metric": k, "mean": np.mean([m[n][k] for m in metrics.values()]),
              "std": np.std([m[n][k] for m in metrics.values()])}
             for n in sets for k in metrics[next(iter(metrics))][n] if k != "rows"]
-    return {"row": row, "long": long, "arrays": arrays, "seed_macro": seed_macro}
+    return {"row": row, "long": long, "arrays": arrays, "set_arrays": set_arrays, "seed_macro": seed_macro}
 
 
 def seed_of(run_id):
@@ -120,9 +122,9 @@ def write_report(folder, summaries, refs, pairs, decision):
 
 
 # Stage Configurations
-def stage_e_configs(win):
-    """pemenang tahap D -> varian inferensi"""
-    prev = need(win, "d")
+def stage_f_configs(win):
+    """pemenang tahap E -> varian inferensi"""
+    prev = need(win, "e")
     out = []
     for beams in (1, 4):
         for wl in (0, 1):
@@ -138,7 +140,7 @@ def stage_report(stage, smoke=False):
     """tahap -> results/stage_x/{table, metrics, pairs}.tsv + decision.json"""
     ctx = Context(smoke)
     win = load_winners(smoke)
-    configs = stage_e_configs(win) if stage == "e" else stage_configs(stage, win)
+    configs = stage_f_configs(win) if stage == "f" else stage_configs(stage, win)
     summaries = []
     for c in configs:
         s = summarize_config(c["name"], run_ids(c), "dev", c.get("opts", DEFAULT_OPTS), ctx)
@@ -153,11 +155,12 @@ def stage_report(stage, smoke=False):
             s = summarize_config(rid, [rid], "dev", DEFAULT_OPTS, ctx)
             if s is not None:
                 refs.append(s)
-    if not summaries:
+    candidates = [s for s in summaries if not s["config"].get("probe")]
+    if not candidates:
         raise RuntimeError(f"tahap {stage}: belum ada run dengan prediksi dev")
 
     # Winner Selection
-    valid = [s for s in summaries if s["row"]["validity"] >= MIN_VALIDITY] or summaries
+    valid = [s for s in candidates if s["row"]["validity"] >= MIN_VALIDITY] or candidates
     best = max(valid, key=lambda s: s["row"]["macro_err"])
     margin = NONINF_MARGIN if stage == "c" else None
     pairs = compare(best, [s for s in valid if s is not best], margin)
@@ -167,20 +170,92 @@ def stage_report(stage, smoke=False):
     decision = {"stage": stage, "winner": c["name"], "prefix": c["prefix"], "params": c["params"],
                 "best_score": best["row"]["config"], "macro_err": float(winner["row"]["macro_err"]),
                 "seeds": winner["row"]["seeds"], "date": time.strftime("%Y-%m-%d %H:%M")}
-    if stage == "e":
+    if stage == "f":
         decision["opts"] = c["opts"]
     write_report(results_dir(smoke) / f"stage_{stage}", summaries, refs, pairs, decision)
+    if stage == "e":
+        transfer_report({s["config"]["name"]: s for s in summaries}, ctx, results_dir(smoke) / "stage_e")
     print(f"pemenang tahap {stage}: {c['name']} ({c['prefix']})")
     return decision
+
+
+def rel_pct(delta, base):
+    # perubahan relatif terhadap |base|, tanda mengikuti delta
+    return 100 * delta / abs(base) if base else float("nan")
+
+
+def transfer_row(model, z, base, final):
+    """config dasar vs config Z satu backbone -> perubahan absolut dan relatif per set"""
+    rows = []
+    for i, name in enumerate(["macro"] + set_names("dev")):
+        if name == "macro":
+            samples = boot_delta(final["arrays"], base["arrays"], N_BOOT)
+            b, f = base["row"]["macro_err"], final["row"]["macro_err"]
+        else:
+            samples = boot_delta([final["arrays"][i - 1]], [base["arrays"][i - 1]], N_BOOT)
+            b, f = base["row"][f"err_{name}"], final["row"][f"err_{name}"]
+        low, high, p = ci_and_p(samples)
+        rows.append({"model": model, "z": z, "set": name, "base": b, "final": f, "delta": float(samples.mean()),
+                     "rel_pct": rel_pct(float(samples.mean()), b), "ci_low": low, "ci_high": high, "p": p})
+    return rows
+
+
+def transfer_report(by_name, ctx, folder):
+    """proxy vs pemenang A: perubahan config dasar -> config Z, arah dan besaran relatif"""
+    if "target-base" not in by_name:
+        print("transfer: tanpa proxy, dilewati")
+        return
+    proxy = by_name["d-final"]["config"]["params"]["backbone"]
+    target = by_name["target-base"]["config"]["params"]["backbone"]
+    proxy_base = summarize_config("proxy-base", run_ids({"prefix": f"a_{proxy}"}), "dev", DEFAULT_OPTS, ctx)
+
+    # Transfer Points
+    points = []
+    if "target-final" in by_name:
+        points.append(("final", by_name["d-final"], by_name["target-final"]))
+    for name, s in by_name.items():
+        if s["config"].get("probe"):
+            proxy_z = summarize_config(name, run_ids({"prefix": s["config"]["probe"]}), "dev", DEFAULT_OPTS, ctx)
+            points.append((name.removeprefix("probe-"), proxy_z, s))
+    if not points:
+        print("transfer: run config terpilih atau probe belum ada, dilewati")
+        return
+
+    rows = []
+    for z, proxy_z, target_z in points:
+        px = transfer_row(proxy, z, proxy_base, proxy_z)
+        tg = transfer_row(target, z, by_name["target-base"], target_z)
+        rows += px + tg
+        # arah sama (1/0) dan rasio perubahan relatif target/proxy
+        for a, b in zip(px, tg):
+            ratio = b["rel_pct"] / a["rel_pct"] if a["rel_pct"] and not math.isnan(a["rel_pct"]) else float("nan")
+            rows.append({"model": "target/proxy", "z": z, "set": a["set"], "base": float("nan"),
+                         "final": float("nan"), "delta": float(np.sign(a["delta"]) == np.sign(b["delta"])),
+                         "rel_pct": ratio, "ci_low": float("nan"), "ci_high": float("nan"), "p": float("nan")})
+    write_tsv(folder / "transfer.tsv", [fmt_row(r) for r in rows], list(rows[0]))
+
+    # Transfer Summary
+    macro_px = [r["rel_pct"] for r in rows if r["model"] == proxy and r["set"] == "macro"]
+    macro_tg = [r["rel_pct"] for r in rows if r["model"] == target and r["set"] == "macro"]
+    agree = [r["delta"] for r in rows if r["model"] == "target/proxy" and r["set"] == "macro"]
+    summary = {"proxy": proxy, "target": target, "points": [p[0] for p in points],
+               "direction_agree": f"{int(sum(agree))}/{len(agree)}",
+               "rel_pct_proxy": macro_px, "rel_pct_target": macro_tg,
+               "pearson_rel_pct": float(np.corrcoef(macro_px, macro_tg)[0, 1]) if len(points) >= 3 else None}
+    write_json(folder / "transfer_summary.json", summary)
+    for r in rows:
+        print(f"transfer {r['model']:14s} {r['z']:8s} {r['set']:9s} base {r['base']:.4f} final {r['final']:.4f}"
+              f" delta {r['delta']:+.4f} rel {r['rel_pct']:+.2f}% CI [{r['ci_low']:+.4f}, {r['ci_high']:+.4f}]")
+    print("transfer ringkas:", summary)
 
 
 def final_report(smoke=False):
     """semua config + baseline -> results/final (test set)"""
     ctx = Context(smoke)
     win = load_winners(smoke)
-    final = need(win, "e")
+    final = need(win, "f")
     groups, seen = [], set()
-    for stage in "abcd":
+    for stage in "abcde":
         for c in stage_configs(stage, win):
             if c["prefix"] not in seen:
                 seen.add(c["prefix"])
@@ -202,10 +277,24 @@ def final_report(smoke=False):
                 pairs.append(p)
     write_report(results_dir(smoke) / "final", summaries, [], pairs, None)
 
+    # Natural Gold
+    extra = []
+    for ref in ["base_mfr-all", "base_rule", ZEROSHOT_ID]:
+        for n in EXTRA_SETS:
+            if ref in by_name:
+                samples = boot_delta([by_name["final"]["set_arrays"][n]], [by_name[ref]["set_arrays"][n]], N_BOOT)
+                low, high, p = ci_and_p(samples)
+                extra.append({"config": "final", "vs": ref, "set": n, "delta": float(samples.mean()),
+                              "ci_low": low, "ci_high": high, "p": p})
+    if extra:
+        write_tsv(results_dir(smoke) / "final" / "natural_pairs.tsv", [fmt_row(x) for x in extra], list(extra[0]))
+        for x in extra:
+            print(f"{x['set']}: final vs {x['vs']} delta {x['delta']:+.4f} CI [{x['ci_low']:+.4f}, {x['ci_high']:+.4f}]")
+
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--stage", required=True, choices=["a", "b", "c", "d", "e", "final"])
+    parser.add_argument("--stage", required=True, choices=["a", "b", "c", "d", "e", "f", "final"])
     parser.add_argument("--smoke", action="store_true")
     args = parser.parse_args()
     if args.stage == "final":

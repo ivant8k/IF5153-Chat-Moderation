@@ -1,0 +1,4 @@
+config	vs	delta	ci_low	ci_high	p	best_better_seeds	common_seeds	acceptable	p_holm
+final	base_mfr-all	0.2653	0.2521	0.2782	0.0000	0	0	True	0.0000
+final	base_rule	0.0602	0.0478	0.0721	0.0000	0	0	True	0.0000
+final	a_zeroshot-flan	2.0258	1.9137	2.1539	0.0000	0	0	True	0.0000

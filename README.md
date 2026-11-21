@@ -80,6 +80,21 @@ e055fb79689e84c21529ae9c518481fe  data/raw/semeval2021/data/tsd_test.csv
 
 Lisensi dan sitasi mengikuti README di tiap folder sumber.
 
+### Simpan di luar repo
+
+Data asli disimpan di luar repo, `data/raw/<dataset>` cukup symlink. Git tidak pernah menulis menembus symlink, jadi pull, merge, atau checkout ke commit lama tidak bisa menghapus data asli. Paling buruk symlink hilang, cukup buat ulang.
+
+```bash
+RAW=~/datasets/IF5153-Chat-Moderation/raw
+mkdir -p $RAW
+for d in conda multilexnorm noisyhate; do
+  mv data/raw/$d $RAW/$d
+  ln -s $RAW/$d data/raw/$d
+done
+```
+
+Untuk clone lama yang masih punya `data/raw/{conda,multilexnorm,noisyhate}` sebagai folder biasa: jalankan perintah di atas sebelum `git pull`. Jika pull dilakukan duluan, git menghapus folder itu dan data perlu diunduh ulang.
+
 ## Task 1 Preprocessing
 
 `data/raw` + `data/annotations/task_1` -> `data/processed/task_1`. Detail di `src/task_1/prepare/HOWTO.md`.

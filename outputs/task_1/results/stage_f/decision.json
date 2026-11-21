@@ -1,0 +1,21 @@
+{
+  "stage": "f",
+  "winner": "greedy-wl0-rp0",
+  "prefix": "a_byt5-small",
+  "params": {
+    "mix": "c",
+    "up": 1,
+    "fmt": "delim",
+    "lr": 0.001,
+    "backbone": "byt5-small"
+  },
+  "best_score": "beam4-wl1-rp0",
+  "macro_err": 0.7751182705149602,
+  "seeds": 3,
+  "date": "2026-11-20 01:18",
+  "opts": {
+    "beams": 1,
+    "whitelist": false,
+    "repair": false
+  }
+}

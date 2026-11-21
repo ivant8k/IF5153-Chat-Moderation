@@ -1,0 +1,16 @@
+{
+  "stage": "e",
+  "winner": "target-base",
+  "prefix": "a_byt5-small",
+  "params": {
+    "mix": "c",
+    "up": 1,
+    "fmt": "delim",
+    "lr": 0.001,
+    "backbone": "byt5-small"
+  },
+  "best_score": "target-base",
+  "macro_err": 0.7751182705149602,
+  "seeds": 3,
+  "date": "2026-11-18 19:42"
+}

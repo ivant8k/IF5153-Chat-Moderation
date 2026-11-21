@@ -1,0 +1,7 @@
+config	seeds	macro_err	macro_err_std	validity	err_mln_dev	err_conda_dev	err_aug_dev
+d-final	3	0.7066	0.0017	0.9963	0.5431	0.7759	0.8008
+target-base	3	0.7751	0.0038	0.9973	0.5996	0.8259	0.8999
+probe-a1	1	0.4259	0.0000	0.9820	0.6418	0.4365	0.1995
+probe-b1	1	0.6266	0.0000	0.9961	0.6276	0.8540	0.3983
+probe-plain	1	0.7414	0.0000	1.0000	0.5547	0.7802	0.8892
+probe-lr3e-3	1	0.7499	0.0000	0.9946	0.5689	0.7916	0.8890

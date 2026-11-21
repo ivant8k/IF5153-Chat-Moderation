@@ -66,12 +66,12 @@ def export_run(out_dir):
 
 
 # Evaluation Sets
-def load_gold():
+def load_gold(file="gold_conda.tsv", lower=False):
     """gold_conda -> rows dengan bobot strata"""
-    rows = read_tsv(ANN / "line_labels" / "gold_conda.tsv")
+    rows = read_tsv(ANN / "line_labels" / file)
     population = read_json(ANN / "line_labels" / "gold_strata.json")
     sampled = Counter(r["stratum"] for r in rows)
-    return [{"id": r["id"], "src": r["src"], "tgt": r["gold"], "stratum": r["stratum"],
+    return [{"id": r["id"], "src": r["src"], "tgt": r["gold"].lower() if lower else r["gold"], "stratum": r["stratum"],
              "weight": population[r["stratum"]] / sampled[r["stratum"]]} for r in rows]
 
 
@@ -80,6 +80,8 @@ def load_set(name):
     path = {**DEV_SETS, **TEST_SETS}[name]
     if path == "gold":
         return load_gold()
+    if path == "gold_natural":
+        return load_gold("gold_conda_v2.tsv", lower=True)
     rows = []
     for r in read_tsv(DATA / path):
         row = {"id": r["id"], "src": r["src"], "tgt": r["tgt"], "weight": 1.0}

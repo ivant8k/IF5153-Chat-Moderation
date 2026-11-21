@@ -28,13 +28,18 @@ BACKBONES = {
                    "budget": 1024, "gen_batch": 32, "cost": 3},
 }
 ZEROSHOT_BACKBONE = "flan-t5-small"
+PROXIES = {"byt5-small": "flan-t5-small"}    # pemenang A -> backbone tahap B-D
+PROBES = [("b", "a1"), ("b", "b1"), ("c", "plain"), ("d", "lr3e-3")]    # config proxy yang diulang di pemenang A
+PROBE_SEEDS = (2026,)
 
 # Data Sets
 TRAIN_FILES = {"mln": "mln/train.tsv", "conda": "conda/train.tsv", "aug": "augmented/train.tsv"}
 MIXES = {"a": ["mln"], "b": ["mln", "conda"], "c": ["mln", "conda", "aug"]}
 DEV_SETS = {"mln_dev": "mln/dev.tsv", "conda_dev": "conda/dev.tsv", "aug_dev": "augmented/conda_dev.tsv"}
 TEST_SETS = {"mln_test": "mln/test.tsv", "gold_conda": "gold", "conda_bench": "conda/bench.tsv",
-             "aug_bench": "augmented/conda_bench.tsv", "noisyhate": "noisyhate/test.tsv"}
+             "aug_bench": "augmented/conda_bench.tsv", "noisyhate": "noisyhate/test.tsv",
+             "gold_conda_natural": "gold_natural"}
+EXTRA_SETS = ["gold_conda_natural"]    # dilaporkan terpisah, tidak masuk macro-ERR
 
 # Text Format
 DELIM = " | "
@@ -63,4 +68,3 @@ NONINF_MARGIN = 0.01
 SMOKE_TRAIN_ROWS = 96
 SMOKE_EVAL_ROWS = 16
 SMOKE_EPOCHS = 2
-SMOKE_BACKBONE = "t5-small"

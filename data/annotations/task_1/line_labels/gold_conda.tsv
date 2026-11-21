@@ -14,7 +14,7 @@ conda-20824-0	toxic	NICE FUCKING ECHO RUBICK	nice | fucking | echo | rubick	nice
 conda-21199-1	toxic	what the fuck are u doing	what | the | fuck | are | u | doing	what | the | fuck | are | you | doing	what | the | fuck | are | you | doing	1	
 conda-21320-2	toxic	fucking hate u all	fucking | hate | u | all	fucking | hate | you | all	fucking | hate | you | all	1	
 conda-21675-0	toxic	it fucking stinked	it | fucking | stinked	it | fucking | stank	it | fucking | stank	1	
-conda-22032-0	toxic	wtf happend	wtf | happend	wtf | happend	wtf | happend	1	
+conda-22032-0	toxic	wtf happend	wtf | happend	wtf | happend	wtf | happened	1	dikoreksi 2026-11-18
 conda-22382-1	toxic	fuck my dusa	fuck | my | dusa	fuck | my | dusa	fuck | my | dusa	1	
 conda-22641-0	toxic	OSfrog Le balanced redhead whore OSfrog	osfrog | le | balanced | redhead | whore | osfrog	osfrog | le | balanced | redhead | whore | osfrog	osfrog | le | balanced | redhead | whore | osfrog	1	
 conda-23109-0	toxic	cose you sexy	cose | you | sexy	because | you | sexy	because | you | sexy	1	
@@ -26,7 +26,7 @@ conda-25038-0	toxic	nob necro	nob | necro	noob | necro	noob | necro	1
 conda-25233-0	toxic	AM says qop sucks	am | says | qop | sucks	am | says | qop | sucks	am | says | qop | sucks	1	
 conda-25240-1	toxic	noob am?	noob | am | ?	noob | am | ?	noob | am | ?	1	
 conda-25389-0	toxic	fucking sniper	fucking | sniper	fucking | sniper	fucking | sniper	1	
-conda-25822-0	toxic	ur fucking ded champ	ur | fucking | ded | champ	your | fucking | dead | champ	your | fucking | dead | champ	1	
+conda-25822-0	toxic	ur fucking ded champ	ur | fucking | ded | champ	your | fucking | dead | champ	you're | fucking | dead | champ	1	dikoreksi 2026-11-18
 conda-25899-0	toxic	what the fuckin hell	what | the | fuckin | hell	what | the | fucking | hell	what | the | fucking | hell	1	
 conda-26840-1	toxic	full retard mid	full | retard | mid	full | retard | mid	full | retard | mid	1	
 conda-26958-0	toxic	5 man penetration to meepo player	5 | man | penetration | to | meepo | player	5 | man | penetration | to | meepo | player	5 | man | penetration | to | meepo | player	1	meepo = nama hero
@@ -40,7 +40,7 @@ conda-29400-0	toxic	I'm not fat	i'm | not | fat	i'm | not | fat	i'm | not | fat	
 conda-29521-0	toxic	nice gank faggots	nice | gank | faggots	nice | gank | faggots	nice | gank | faggots	1	
 conda-29567-0	toxic	noob axe hahahah	noob | axe | hahahah	noob | axe | hahahah	noob | axe | hahahah	1	
 conda-30273-1	toxic	alchi delte fame plz nooob bitch	alchi | delte | fame | plz | nooob | bitch	alchi | delete | fame | please | noob | bitch	alchi | delete | fame | please | noob | bitch	1	
-conda-30287-1	toxic	fail mid lachi retrad nooob	fail | mid | lachi | retrad | nooob	fail | mid | lachi | retard | noob	fail | mid | lachi | retard | noob	1	
+conda-30287-1	toxic	fail mid lachi retrad nooob	fail | mid | lachi | retrad | nooob	fail | mid | lachi | retard | noob	fail | mid | alchi | retard | noob	1	dikoreksi 2026-11-18
 conda-30288-0	toxic	LOL  funny alchi retrad nooob	lol | funny | alchi | retrad | nooob	lol | funny | alchi | retard | noob	lol | funny | alchi | retard | noob	1	
 conda-30638-1	toxic	its hard with 3 idiot	its | hard | with | 3 | idiot	its | hard | with | 3 | idiot	its | hard | with | 3 | idiot	1	
 conda-30802-0	toxic	fking ez	fking | ez	fucking | ez	fucking | ez	1	
@@ -69,7 +69,7 @@ conda-41171-0	toxic	IM MORON ONLY PHASE BOOT	im | moron | only | phase | boot	i'
 conda-41325-1	toxic	fucknig noob	fucknig | noob	fucking | noob	fucking | noob	1	
 conda-42011-0	toxic	putang Ina mo	putang | ina | mo	putang | ina | mo	putang | ina | mo	1	
 conda-42027-6	toxic	idiot hero	idiot | hero	idiot | hero	idiot | hero	1	
-conda-42032-0	toxic	fat puj xD	fat | puj | xd	fat | puj | xd	fat | puj | xd	1	xD nya itu emoji
+conda-42032-0	toxic	fat puj xD	fat | puj | xd	fat | puj | xd	fat | pudge | xd	1	xD nya itu emoji; dikoreksi 2026-11-18
 conda-42340-0	toxic	retarded qop	retarded | qop	retarded | qop	retarded | qop	1	
 conda-42384-2	toxic	So fucking bad	so | fucking | bad	so | fucking | bad	so | fucking | bad	1	
 conda-43037-0	toxic	pheonix noob	pheonix | noob	phoenix | noob	phoenix | noob	1	
@@ -125,7 +125,7 @@ conda-25515-0	changed	end pld	end | pld	end | please	end | please	1
 conda-27408-0	changed	gget me my 6350	gget | me | my | 6350	get | me | my | 6350	get | me | my | 6350	1	
 conda-27593-0	changed	u guys DC	u | guys | dc	you | guys | dc	you | guys | dc	1	
 conda-28323-2	changed	PLS MERCY	pls | mercy	please | mercy	please | mercy	1	
-conda-28878-0	changed	i know u love techies gus	i | know | u | love | techies | gus	i | know | you | love | techies | gus	i | know | you | love | techies | gus	1	
+conda-28878-0	changed	i know u love techies gus	i | know | u | love | techies | gus	i | know | you | love | techies | gus	i | know | you | love | techies | guys	1	dikoreksi 2026-11-18
 conda-28884-3	changed	ohkay then....	ohkay | then | ....	okay | then | ....	okay | then | ....	1	
 conda-28915-0	changed	cant report	cant | report	can't | report	can't | report	1	
 conda-28919-1	changed	dat sacrifice	dat | sacrifice	that | sacrifice	that | sacrifice	1	
@@ -165,7 +165,7 @@ conda-43290-0	changed	Isnt it obvious	isnt | it | obvious	isn't | it | obvious	i
 conda-43303-0	changed	Well hey, at least i dont pick spirit breaker.	well | hey | , | at | least | i | dont | pick | spirit | breaker | .	well | hey | , | at | least | i | don't | pick | spirit | breaker | .	well | hey | , | at | least | i | don't | pick | spirit | breaker | .	1	
 conda-43403-0	changed	mine will be cooldown when u respawn	mine | will | be | cooldown | when | u | respawn	mine | will | be | cooldown | when | you | respawn	mine | will | be | cooldown | when | you | respawn	1	
 conda-43694-0	changed	commend me pls	commend | me | pls	commend | me | please	commend | me | please	1	
-conda-44023-0	changed	ur wc	ur | wc	your | wc	your | wc	1	
+conda-44023-0	changed	ur wc	ur | wc	your | wc	you're | welcome	1	dikoreksi 2026-11-18
 conda-44220-0	changed	w.e	w.e	whatever	whatever	1	
 conda-4604-0	changed	pls keep sandstorming mid lane	pls | keep | sandstorming | mid | lane	please | keep | sandstorming | mid | lane	please | keep | sandstorming | mid | lane	1	
 conda-4606-0	changed	thats what i've been telling him.	thats | what | i've | been | telling | him | .	that's | what | i've | been | telling | him | .	that's | what | i've | been | telling | him | .	1	
@@ -258,11 +258,11 @@ conda-18309-0	other	:) nice focus	:) | nice | focus	:) | nice | focus	:) | nice 
 conda-19781-0	other	sorry man	sorry | man	sorry | man	sorry | man	1	
 conda-21563-0	other	34	34	34	34	1	
 conda-22029-0	other	gawn	gawn	gawn	gawn	1	
-conda-22034-0	other	lucky]0	lucky]0	lucky]0	lucky]0	1	
+conda-22034-0	other	lucky]0	lucky]0	lucky]0	lucky	1	dikoreksi 2026-11-18
 conda-22377-0	other	576 gold	576 | gold	576 | gold	576 | gold	1	
 conda-22427-0	other	he lag	he | lag	he | lag	he | lag	1	
 conda-23475-0	other	hikhik	hikhik	hikhik	hikhik	1	
-conda-24434-1	other	nc arrow?	nc | arrow | ?	nc | arrow | ?	nc | arrow | ?	1	
+conda-24434-1	other	nc arrow?	nc | arrow | ?	nc | arrow | ?	nice | arrow | ?	1	dikoreksi 2026-11-18
 conda-24463-0	other	i know	i | know	i | know	i | know	1	
 conda-25039-0	other	ahahahahah	ahahahahah	ahahahahah	ahahahahah	1	
 conda-25285-2	other	EPIC	epic	epic	epic	1	
@@ -288,7 +288,7 @@ conda-35221-1	other	look at these scrubs	look | at | these | scrubs	look | at | 
 conda-35489-0	other	it was close	it | was | close	it | was | close	it | was | close	1	
 conda-35669-1	other	run run	run | run	run | run	run | run	1	
 conda-36677-1	other	this is us	this | is | us	this | is | us	this | is | us	1	
-conda-37966-0	other	lol7	lol7	lol7	lol7	1	
+conda-37966-0	other	lol7	lol7	lol7	lol	1	dikoreksi 2026-11-18
 conda-38403-0	other	,	,	,	,	1	
 conda-39143-0	other	what is reset	what | is | reset	what | is | reset	what | is | reset	1	
 conda-39571-0	other	no just wasting time	no | just | wasting | time	no | just | wasting | time	no | just | wasting | time	1	
