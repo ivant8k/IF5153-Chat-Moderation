@@ -1,4 +1,4 @@
-"""Phase 3 quality gate verification: round-trip F1 and CRF-compatible tensor checks."""
+"""Data preparation and preprocessing quality gate verification: round-trip F1 and CRF-compatible tensor checks."""
 from pathlib import Path
 import sys
 
