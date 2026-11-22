@@ -1,0 +1,1519 @@
+{
+  "trial": {
+    "n": 690,
+    "error_category_counts": {
+      "exact_match": 304,
+      "partial_over_extension": 133,
+      "empty_false_positive": 42,
+      "zero_overlap_mismatch": 36,
+      "partial_under_extension": 166,
+      "missed_toxic": 8,
+      "partial_shifted": 1
+    },
+    "worst_zero_f1": [
+      {
+        "idx": 4,
+        "text": "As long as your willing to pay a lot more for products you buy, then fine.\nBut you better not be going to Costco and Walmart to buy stuff because it's cheaper.\nIf so, we get to call you a hypocritical wanker.",
+        "gold_texts": [],
+        "crf_texts": [
+          "hypocritical wanker"
+        ],
+        "linear_texts": [
+          "hypocritical wanker"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 6,
+        "text": "Thanks a lot douchebag. You're the reason the Portland buttfuckers are getting pushed out and moving down south to the Wilsonville area and beyond. Because of you all the stupid fucking assholes that made Portland a place full of stupid fucking assholes are going to try to turn Salem into some kind of new-stupid-fucking-asshole-topia. This will drive up the price of housing and displace  people down here. Having lived in San Clemente for a time myself I think you're dumb as shit to have moved up here. The fucks wrong with you outsider. I hope bums shit in your yard everyday and never let you walk by without demanding spare  change.",
+        "gold_texts": [
+          "o try to turn Salem into some kind of new-stupid-fucking-asshole-topia. This will drive up the price of housing and displace  people down here. Having lived in San Clemente for a time myself I think you're dumb as shit to have moved up here. The fuck"
+        ],
+        "crf_texts": [
+          "douchebag"
+        ],
+        "linear_texts": [
+          "douchebag",
+          "stupid"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 7,
+        "text": "kick all the non human criminal illegals out of PA and plenty of room; \n\nFools!",
+        "gold_texts": [],
+        "crf_texts": [
+          "Fools"
+        ],
+        "linear_texts": [
+          "Fools"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 13,
+        "text": "Clinton should be the last person to say anything about anyone. She is such a lying scum bag. I can't handle just hearing her voice. It would be a lot worse if she was President than we are with the crazy Trump. She would have her husband (AKA: as the cigar rapist) as her guide. He should have been arrested for doing that to that young girl, the starred eye Monica. How can anyone blame her but I certainly wouldn't have let him stick a cigar in me. It is the Media's fault because they keep going to get her big lying mouth going.",
+        "gold_texts": [],
+        "crf_texts": [
+          "lying scum bag",
+          "cigar rapist"
+        ],
+        "linear_texts": [
+          "scum bag"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 15,
+        "text": "Canadians killed by Islamic extremists? The immediate result should be Canada cleaning up the Islamic world from one end to the other so that there are no more terrorists to be found in it, nor any more people who discriminate against members of non-Muslim minorities, nor anyone who prepares for war against Israel.\n\nThose of the Muslim faith who are willing to live in peace, on the other hand, will now be able to do so.\n\nThat will send the right message: Don't mess with Canadians. Ever.",
+        "gold_texts": [],
+        "crf_texts": [
+          "Islamic extremists",
+          "terrorists"
+        ],
+        "linear_texts": [
+          "terrorists"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 22,
+        "text": "Clinton signed that Joint Fundraising agreement in August 2015. It was reported on then; why is it an issue now? And there wasn't anything illegal about it, so it's not a crime. Oh, and the Sanders campaign signed the same agreement with the DNC in Oct 2015. Somehow that's overlooked. Though granted, Sanders later chose to raise money on his own, not thru the Fund. No, Clinton hasn't gotten away with \"so many crimes,\" because she hasn't committed them. \"It boggles the mind that after all these revelations, people would want a liar and a crook to be our president,\" clearly refers to Trump; a liar and a crook.",
+        "gold_texts": [
+          "r cho"
+        ],
+        "crf_texts": [
+          "liar and a crook"
+        ],
+        "linear_texts": [
+          "and a crook",
+          "liar and a crook"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 28,
+        "text": "Trying the education route is best but you face a huge problem in that the average person today is\ndumber than a doughnut.  Stupid, maybe you can do something but dumb, dumb is forever.",
+        "gold_texts": [],
+        "crf_texts": [
+          "dumber",
+          "Stupid",
+          "dumb",
+          "dumb"
+        ],
+        "linear_texts": [
+          "dumb",
+          "Stupid",
+          "dumb"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 33,
+        "text": "These freaking donkeys all need to be removed from office. I'm so sick and tired of these lifelong politicians who all seem clueless and could never run their own business.\n\n For all you people who marched against our president how about we all March to Honolulu hale and demand rail be stopped. Oh that's right you only like complaining against the president of the United States and do nothing against all the useless politicians in your own backyard. \nSuch hypocrites. Keep voting for those donkeys you fools",
+        "gold_texts": [],
+        "crf_texts": [
+          "freaking donkeys",
+          "hypocrites"
+        ],
+        "linear_texts": [
+          "freaking",
+          "s",
+          "ypocrites",
+          "fools"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 41,
+        "text": "Brilliant reply. Kept me in suspense throughout. It would probably be cheaper to just offer a bounty on low-hanging britches tho'. When you see them, just yank them down and when the twit turns to strike you just push him backwards and take his pic. Post it online and get a $25 reward. If enough of these morons get shamed it might beautify the community more than \"art\" which is more subjective. Everybody enjoys seeing a fool take a fall.",
+        "gold_texts": [],
+        "crf_texts": [
+          "morons",
+          "fool"
+        ],
+        "linear_texts": [
+          "morons",
+          "fool"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 49,
+        "text": "Life was so much easier (and fun) just a few months ago for the GOP and Trump chumps could just sit back and blame everything on President Obama and chant \"Lock her up!\" at their brown shirt rallies. \nNow that they control the Oval Office and both houses of Congress, they have no alternative to turn on each other for the historic failures of their cheeto-face, sphincter-lipped lying con man-in-chief, and the Putin henchmen in his Administration.",
+        "gold_texts": [
+          "cheeto-face, sphincter-lipped lying"
+        ],
+        "crf_texts": [
+          "chumps"
+        ],
+        "linear_texts": [
+          "eto-face",
+          "-",
+          "ch"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.3913,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 53,
+        "text": "Trudeau and cabinet are the racist scum.\nThrow them all into the volcano, ashes to\nashes.",
+        "gold_texts": [],
+        "crf_texts": [
+          "racist scum"
+        ],
+        "linear_texts": [
+          "racist",
+          "scum"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 69,
+        "text": "Oh my here we go again.....Another day in the lives of hysterical hypocrite liberals and their Russian Boogey Man conspiracies. Democrats obvisiously  so butthurt over Trumps win that all they have left is impeachment nonsense and verbal attacks to distract the public from their own gross ignorance and anti America, un American direction of their political party.",
+        "gold_texts": [],
+        "crf_texts": [
+          "hypocrite"
+        ],
+        "linear_texts": [
+          "hypocrite"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 81,
+        "text": "F@#k all you libtards. Go move to California so when NKorea nukes it, a  good chunk of you dumba$$es will be gone for good.",
+        "gold_texts": [],
+        "crf_texts": [
+          "F@#k",
+          "libtards",
+          "dumba$$es"
+        ],
+        "linear_texts": [
+          "F@#k",
+          "btards",
+          "dumba$$es"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 87,
+        "text": "RE agents are some of the most manipulative narcissist's around.  They lie, lie, lie, cheat, cheat, cheat for breakfast, lunch and dinner. \n-\nHow do you teach someone to sell their soul?",
+        "gold_texts": [],
+        "crf_texts": [
+          "manipulative narcissist"
+        ],
+        "linear_texts": [
+          "manipulative",
+          "narcissist",
+          "cheat"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 89,
+        "text": "Ha ha ha. What a friggin joke. Trudeau couldn't evaluate a terrorist. He gave him 10 million. Trudeau you are such a useless piece of dung",
+        "gold_texts": [
+          "piece of dung"
+        ],
+        "crf_texts": [
+          "friggin",
+          "terrorist"
+        ],
+        "linear_texts": [
+          "iggin",
+          "useless piece of dung"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.6667,
+        "error_type": "zero_overlap_mismatch"
+      }
+    ],
+    "worst_partial_f1": [
+      {
+        "idx": 520,
+        "text": "This bill is a tax cut disguised as a health care bill. People will die if this bill passes. To deny this fact is to bury your head even farther up Trumps ass. Makes me sick.",
+        "gold_texts": [
+          "ass"
+        ],
+        "crf_texts": [
+          "People will die if this bill passes. To deny this fact is to bury your head even farther up Trumps ass. Makes me sick"
+        ],
+        "linear_texts": [
+          "die",
+          "s",
+          "ass"
+        ],
+        "crf_f1": 0.05,
+        "linear_f1": 0.6,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 623,
+        "text": "\"Allie\": in 2016 only $3.2 million came from general funds.  $15.1 million came from the so called ceded land revenues, and $17.3 million from their endowment (whose original corpus was revenues due from so called ceded lands).  You are either ignorant or lying; either way, pa`a ka waha.",
+        "gold_texts": [
+          "Allie\": in 2016 only $3.2 million came from general funds.  $15.1 million came from the so called ceded land revenues, and $17.3 million from their endowment (whose original corpus was revenues due from so called ceded lands).  You are either ignorant or lying; either way, pa`a ka w"
+        ],
+        "crf_texts": [
+          "ignorant"
+        ],
+        "linear_texts": [
+          "ignorant"
+        ],
+        "crf_f1": 0.055,
+        "linear_f1": 0.055,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 683,
+        "text": "What a stupid question.  How about the taxpayers right to enjoy our facilities?  The state and city are more concerned with the non taxpaying vendors, how much you want to bet that they don't pay any taxes!",
+        "gold_texts": [
+          "t a stupid question.  How about the taxpayers right to enjoy our facilities?  The state and city are more concerned with the non taxpaying vendors, how much"
+        ],
+        "crf_texts": [
+          "stupid"
+        ],
+        "linear_texts": [
+          "stupid"
+        ],
+        "crf_f1": 0.0741,
+        "linear_f1": 0.0741,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 347,
+        "text": "Monsef is an idiot and should be turfed from the Cabinet ....but Comrade Sunny Days is too enamoured with her....",
+        "gold_texts": [
+          "Monsef is an idiot and should be turfed from the Cabinet ....but Comrade Sunny Days is too enamoured with her"
+        ],
+        "crf_texts": [
+          "idiot"
+        ],
+        "linear_texts": [
+          "idiot"
+        ],
+        "crf_f1": 0.0877,
+        "linear_f1": 0.0877,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 297,
+        "text": "So we should get behind a clueless moron because by golly, he's our clueless moron? Best option is find him mentally unfit to command, (which is obvious to all our enemies if not all his equally moronic supporters) and get someone with a SMIDGEN of sense in command. I'd take Pence any day, and I don't like his politics, but at least he isn't senile.",
+        "gold_texts": [
+          "So we should get behind a clueless moron because by golly, he's our clueless moron? Best option is find him mentally unfit to command, (which is obvious to all our enemies if not all his equally moronic supporters) and get someone with a SMIDGEN of sense in command. I'd take Pence any day, and I don't like his politics, but at least he isn't senile"
+        ],
+        "crf_texts": [
+          "moron",
+          "moron",
+          "moronic"
+        ],
+        "linear_texts": [
+          "less moron",
+          "less moron",
+          "moronic"
+        ],
+        "crf_f1": 0.0926,
+        "linear_f1": 0.1432,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 488,
+        "text": "The NIGER RACE was ONCE USED as LABOR but the WHITE SCUM ELEVATED the NIGER to HUMAN LEVEL---\nTIME to RETURN the NIGER RACE BACK to the GHETTO in HELL\nPROGRESSIVE NIGER LOVERS GET IT FIRST---",
+        "gold_texts": [
+          "The NIGER RACE was ONCE USED as LABOR but the WHITE SCUM ELEVATED the NIGER to HUMAN LEVEL---\nTIME to RETURN the NIGER RACE BACK to the GHETTO in HELL\nPROGRESSIVE NIGER LOVERS GET IT FIRST"
+        ],
+        "crf_texts": [
+          "WHITE SCUM"
+        ],
+        "linear_texts": [
+          "SCUM"
+        ],
+        "crf_f1": 0.101,
+        "linear_f1": 0.0417,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 305,
+        "text": "there it is in a 'nutshell'.  \nfear, loathing, and hatred of  'liberals' is what drives these people.  \nthey would vote for a slate of kangaroos provided that the kangaroos were portrayed as the opposition to the 'liberal agenda'.\n\npathetic and mindless.",
+        "gold_texts": [
+          "nutshell",
+          "pathetic"
+        ],
+        "crf_texts": [
+          ", loathing, and hatred of  'liberals' is what drives these people.  \nthey would vote for a slate of kangaroos provided",
+          "pathetic and mindless"
+        ],
+        "linear_texts": [
+          "s",
+          "s",
+          "pathetic and mindless"
+        ],
+        "crf_f1": 0.1032,
+        "linear_f1": 0.4103,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 673,
+        "text": "\"Trump\u2019s tax returns: What did we learn?\"\n\n----------\n\nThat Rachel Maddow is an idiot.\n\nThis entire episode has blown up in her face.\n\nShe deserves it.",
+        "gold_texts": [
+          "That Rachel Maddow is an",
+          "idiot",
+          "This entire episode has blown up in her face.\n\nShe deserves i"
+        ],
+        "crf_texts": [
+          "idiot"
+        ],
+        "linear_texts": [
+          "idiot"
+        ],
+        "crf_f1": 0.1053,
+        "linear_f1": 0.1053,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 355,
+        "text": "I don't think the writer of this piece of shit knows what a \"white savior complex\" is if the jackass did know what it meant he would realize he used it incorrectly, also asians are pretty damn white so using a pathetic virtue signal like that is doesn't apply here, stop cowtowing to the Far Left you little bitch you're white stop self hating just because people have told you to. If you review a film review the damn film don't review society you virtue signaling cunt.",
+        "gold_texts": [
+          "the writer of this piece of shit",
+          "the jackass",
+          "pathetic virtue signal",
+          "you little bitch you're white",
+          "the damn film don't review society",
+          "you virtue signaling cunt"
+        ],
+        "crf_texts": [
+          "shit",
+          "jackass"
+        ],
+        "linear_texts": [
+          "shit",
+          "jackass",
+          "bitch",
+          "damn"
+        ],
+        "crf_f1": 0.1341,
+        "linear_f1": 0.2312,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 354,
+        "text": "The water is just fine, as is the air.  Those that work in the oil industry drink the same water and breath the same air, as do their families.  Don't fall for the hype by those who make money off the anti this and anti that crap.  Lawyers will keep us safe, as those harmed by industries will sue the hell out of the alleged offenders.  It's all good.  Calm down.  We don't need a colossal sized government with government officials that know nothing about the areas they regulate.",
+        "gold_texts": [
+          "money off the anti this and anti that crap",
+          "government"
+        ],
+        "crf_texts": [
+          "crap"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.1429,
+        "linear_f1": 0.0,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 583,
+        "text": "If I was in the press corp I would ask Trump if he felt that he was being treated like a patsy by the Russians. He has never given a plausible reason for being so fauning towards them.",
+        "gold_texts": [
+          "patsy"
+        ],
+        "crf_texts": [
+          "if he felt that he was being treated like a patsy by the Russians"
+        ],
+        "linear_texts": [
+          "felt that he was being treated like a patsy by the Russians"
+        ],
+        "crf_f1": 0.1429,
+        "linear_f1": 0.1562,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 490,
+        "text": "AirMiles used to be good, but now it pretty much sucks anyway.",
+        "gold_texts": [
+          "AirMiles used to be good, but now it pretty much sucks anyway"
+        ],
+        "crf_texts": [
+          "sucks"
+        ],
+        "linear_texts": [
+          "sucks"
+        ],
+        "crf_f1": 0.1515,
+        "linear_f1": 0.1515,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 381,
+        "text": "As most people can see, there are the same 4 or 5 people on here who back up Trump no matter what idiotic thing he says or does. When Trump said he could \"stand in the middle of 5th Avenue and shoot somebody, and still not lose votes\", these are those people. It's truly sad.",
+        "gold_texts": [
+          "idiotic"
+        ],
+        "crf_texts": [
+          "idiotic thing he says or does",
+          "stand in the middle of 5th Avenue and shoot somebody"
+        ],
+        "linear_texts": [
+          "idiotic",
+          "said he could",
+          "stand in the middle of",
+          "Avenue and shoot somebody",
+          "still not lose votes"
+        ],
+        "crf_f1": 0.1591,
+        "linear_f1": 0.1489,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 534,
+        "text": "Close the MSM down, get rid of the jews that run them..they are the problem",
+        "gold_texts": [
+          "jews"
+        ],
+        "crf_texts": [
+          "rid of the jews that run",
+          "they are the problem"
+        ],
+        "linear_texts": [
+          "jews"
+        ],
+        "crf_f1": 0.1667,
+        "linear_f1": 1.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 336,
+        "text": "And I assume the \"middle class\" includes the high income earning support industries for the oil companies? The racketeer-health care complex in Alaska? The out of state carpetbagging oil industry workers and CEO's and shareholders around the world profiting from our natural resources? \n\nGet the idea out of your head that people are paid what they're worth.\n\nThe Koch brothers, who inherited their wealth, make 1000 times per hour more than what a nurse's aide does. Lazy ass nurse's aide!\n\nBecause you live in the Bush, there may be no jobs. Lazy asses. \n\nTough that your culture has been co-opted. All because you wanted to have a nice school in your community so your kids could be part of the dominant culture. Should have raised them stone-age style instead!\n\nI'm sure all the \"middle-class\" self-righteous types here invented Western culture and material wealth independently and by the aid of only their ingenious bootstraps. Why should they share with those lazy villagers?",
+        "gold_texts": [
+          "Lazy ass",
+          "Lazy asses",
+          "lazy"
+        ],
+        "crf_texts": [
+          "racketeer",
+          "lazy villagers"
+        ],
+        "linear_texts": [
+          "er",
+          "es",
+          "lazy"
+        ],
+        "crf_f1": 0.1778,
+        "linear_f1": 0.4,
+        "error_type": "partial_over_extension"
+      }
+    ],
+    "crf_beats_linear": [
+      {
+        "idx": 230,
+        "text": "My all time favorites are still Wyoming College (spend $20K per year on something slightly more legit than an online diploma mill and live in a trailer in rural Wyoming) and the now defunct Ave Maria College (come and hear Fr. Gruner's conspiracy theories and other schimatic garbage.)",
+        "gold_texts": [
+          "garbage"
+        ],
+        "crf_texts": [
+          "garbage"
+        ],
+        "linear_texts": [],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 332,
+        "text": "your a nut job liberal troll of bs,, save it loser,, we laugh at the complete nonsense, blaming harris bs,, god you liberals never change, always consistently ignorant, lying and full of it..",
+        "gold_texts": [
+          "nut",
+          "ignorant"
+        ],
+        "crf_texts": [
+          "ignorant"
+        ],
+        "linear_texts": [
+          "loser"
+        ],
+        "crf_f1": 0.8421,
+        "linear_f1": 0.0,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 387,
+        "text": "The King and Queen of Coal Mines, a slap in the face to the GEA, Butts, Telford LOL.",
+        "gold_texts": [
+          "slap",
+          "GEA"
+        ],
+        "crf_texts": [
+          "slap"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.7273,
+        "linear_f1": 0.0,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 478,
+        "text": "idk the devil makes some damn fine salad....",
+        "gold_texts": [
+          "devil"
+        ],
+        "crf_texts": [
+          "devil",
+          "damn"
+        ],
+        "linear_texts": [
+          "damn"
+        ],
+        "crf_f1": 0.7143,
+        "linear_f1": 0.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 606,
+        "text": "Fellow posters ... a friendly suggestion ...\n\nBefore you post on this (or any thread), you may want to review all the posts to judge for yourself whether there is any value in attempting to respond to one of this forum's most active and pernicious trolls. Haters are gonna hate, no matter what evidence or argument you present.",
+        "gold_texts": [
+          "trolls"
+        ],
+        "crf_texts": [
+          "trolls"
+        ],
+        "linear_texts": [
+          "nicious",
+          "trolls",
+          "rs are gonna hate"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.3333,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 417,
+        "text": "Who is this clown? A lazy bum who sits allday writing jiberish - he's doing americans a favour -you can tell he is a half wit - all half wits bring up racism because they can;t think for themselves....",
+        "gold_texts": [
+          "lazy"
+        ],
+        "crf_texts": [
+          "lazy bum"
+        ],
+        "linear_texts": [
+          "clown"
+        ],
+        "crf_f1": 0.6667,
+        "linear_f1": 0.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 59,
+        "text": "False equivalency. Obama was born in the US. It is irrelevant what fools believed. And he won both his elections with sizable EC counts AND very strong majorities in the national popular vote.\n\nLegal is not the same as legitimate. DT is not viewed as earning the trust and confidence of the majority when he can't win a majority of the votes.",
+        "gold_texts": [
+          "fools"
+        ],
+        "crf_texts": [
+          "fools"
+        ],
+        "linear_texts": [
+          "irrelevant",
+          "fools believed"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.3448,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 99,
+        "text": "Trump's Traitors\u2122 need to be purged from any and all government positions NOW.\nThe GOP congress needs to find their spines and stop defending these criminals.",
+        "gold_texts": [
+          "Traitors"
+        ],
+        "crf_texts": [
+          "Traitors\u2122",
+          "criminals"
+        ],
+        "linear_texts": [
+          "criminals"
+        ],
+        "crf_f1": 0.6154,
+        "linear_f1": 0.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 165,
+        "text": "Lebrun James is disgusting! I used to like him but he stumped for HRC the biggest most corrupt politician to EVER run and called blacks SUPER OREDATORS and he trashes Trump?? I quit watching NBA because of him and the Seattle Seahawks version of the NBA-GS Warriors! They're friggn racists and I'm DONE! Only college football for me until......let's unite and boycott the NFL/NBA!!! ESPN is dying too thank the lord.....RACIST LIBTARDS",
+        "gold_texts": [
+          "friggn",
+          "racists",
+          "RACIST LIBTARDS"
+        ],
+        "crf_texts": [
+          "disgusting",
+          "RACIST LIBTARDS"
+        ],
+        "linear_texts": [
+          "disgusting"
+        ],
+        "crf_f1": 0.566,
+        "linear_f1": 0.0,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 538,
+        "text": "Sorry old man....I knew you were a DRUNK!\nDuring  the 5 years in Alaska we have grossed 1.5 million dollars\nwww.thehealingcentermedicalclinic.org",
+        "gold_texts": [
+          "DRUNK"
+        ],
+        "crf_texts": [
+          "DRUNK"
+        ],
+        "linear_texts": [
+          "Sorry",
+          "man",
+          "knew",
+          "DRUNK"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.4545,
+        "error_type": "exact_match"
+      }
+    ],
+    "linear_beats_crf": [
+      {
+        "idx": 328,
+        "text": "Wow, how times have changed! All hail the muslim. It wasn't so very long ago that Christians were told to remove all crosses from government properties in Hawaii and even some privately owned churches were heartily challenged. Now we have foreign born muslims on the front page and their \"right\" to be is heavily protected. Go figure.",
+        "gold_texts": [],
+        "crf_texts": [
+          "muslim",
+          "muslims"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 534,
+        "text": "Close the MSM down, get rid of the jews that run them..they are the problem",
+        "gold_texts": [
+          "jews"
+        ],
+        "crf_texts": [
+          "rid of the jews that run",
+          "they are the problem"
+        ],
+        "linear_texts": [
+          "jews"
+        ],
+        "crf_f1": 0.1667,
+        "linear_f1": 1.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 632,
+        "text": "Senator Bennett is busy blaming Trump who had nothing to do with Obama Care. I'm surprised there are actually that many stupid people that believe him.",
+        "gold_texts": [
+          "stupid"
+        ],
+        "crf_texts": [
+          "had nothing to do with Obama Care",
+          "stupid"
+        ],
+        "linear_texts": [
+          "stupid"
+        ],
+        "crf_f1": 0.2667,
+        "linear_f1": 1.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 506,
+        "text": "Good: perhaps Dunleavy should be expelled from the Senate for religious intolerance and stupidity in general: the little man is dangerous to himself and others!",
+        "gold_texts": [
+          "stupidity"
+        ],
+        "crf_texts": [
+          "stupidity",
+          "the little man is dangerous to himself"
+        ],
+        "linear_texts": [
+          "stupidity"
+        ],
+        "crf_f1": 0.3214,
+        "linear_f1": 1.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 89,
+        "text": "Ha ha ha. What a friggin joke. Trudeau couldn't evaluate a terrorist. He gave him 10 million. Trudeau you are such a useless piece of dung",
+        "gold_texts": [
+          "piece of dung"
+        ],
+        "crf_texts": [
+          "friggin",
+          "terrorist"
+        ],
+        "linear_texts": [
+          "iggin",
+          "useless piece of dung"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.6667,
+        "error_type": "zero_overlap_mismatch"
+      }
+    ]
+  },
+  "test": {
+    "n": 2000,
+    "error_category_counts": {
+      "partial_over_extension": 460,
+      "empty_false_positive": 378,
+      "exact_match": 973,
+      "partial_under_extension": 118,
+      "missed_toxic": 16,
+      "zero_overlap_mismatch": 49,
+      "partial_shifted": 6
+    },
+    "worst_zero_f1": [
+      {
+        "idx": 2,
+        "text": "tens years ago i contacted the PDR and suggested that the time might be good to work with alaska on building a gas line.. alaska rejected them without even consideration despite china being flush with cash and hungry for gas.. and set up another infamous boondoggle.. the transcanada-exxon rip off that we are still paying for and have yet to receive anything of value.. hundreds of millions of dollars on studies.. and buyouts.. i hope china says f you alaska.. you are nothing but ignorant people..",
+        "gold_texts": [],
+        "crf_texts": [
+          "you are nothing but ignorant people"
+        ],
+        "linear_texts": [
+          "you are",
+          "ignorant people"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 3,
+        "text": "The parallels between the ANC and the Sicilian Mafia are glaring. The ANC has always been run by a few \"families\" who treat the state as 'turf' ; as just one big piggy bank for their self-enrichment. The government basically believes we all just work for them. They aren't a democratic government at all, but use the appearances of democracy to give their entitlement practices a mask of legitimacy. The poor and ignorant have been fooled for so long, but people are slowly coming to the ANC for what it is: a self-serving Mafia!",
+        "gold_texts": [],
+        "crf_texts": [
+          "ignorant"
+        ],
+        "linear_texts": [
+          "ignorant"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 4,
+        "text": "Intel Community: \u2018How can we work for a President who Undermines our work?\u2019\n\nDays before taking office, he compared America\u2019s spies to Adolf Hitler\u2019s Gestapo.\n\nAmerican spies do not like having their work dismissed by the president. Nor do they appreciate comparisons to Nazi Germany.\n\nFormer CIA Director John Brennan made it clear: \u201cThe person who said that should be ashamed of himself,\u201d Brennan said.\n\nCoats\u2019 predecessor, Gen. James Clapper, called Trump\u2019s comments \u201ca terrible, insulting affront \u2026 completely inappropriate.\u201d\n\nTrump\u2019s opinions are out of step with the conclusions of the agencies he is supposed to be leading.\n\nNot surprising in a treasonous traitor.",
+        "gold_texts": [],
+        "crf_texts": [
+          "America\u2019s spies to Adolf Hitler\u2019s Gestapo.\n\nAmerican spies do not like having their work dismissed by the president. Nor do they appreciate comparisons to Nazi Germany",
+          "terrible, insulting affront",
+          "treasonous traitor"
+        ],
+        "linear_texts": [
+          "\u2019s spies to Adolf Hitler\u2019s Gestapo",
+          "to Nazi Germany",
+          "terrible",
+          "affront",
+          "ous traitor"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 17,
+        "text": "I wish this moron would have been shot to death by the US soldier instead of the other way around. I hope that 10 million is given to the soldier's family who actually deserve it.",
+        "gold_texts": [],
+        "crf_texts": [
+          "moron"
+        ],
+        "linear_texts": [
+          "moron"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 19,
+        "text": "Chris Birch is a mean, self-centered, contrary ass. He repeatedly interrupted Robin Brena during his presentation and always, always sucks up to Big Oil. He could care less about his constituents and the rest of Alaska. He needs to get gone. What has he done for you, South Anchorage? Sarcastic is the perfect adjective for Chris Birch!",
+        "gold_texts": [],
+        "crf_texts": [
+          "ass"
+        ],
+        "linear_texts": [
+          "ass"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 20,
+        "text": "I always knew you were a dirty cop.",
+        "gold_texts": [],
+        "crf_texts": [
+          "dirty cop"
+        ],
+        "linear_texts": [
+          "dirty cop"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 22,
+        "text": "No, my poor benighted correspondent, your reductionism reveals an archaic mindset. Intersex, questioning, nongendered, and a vast variety of others have rights too!",
+        "gold_texts": [
+          "benighted"
+        ],
+        "crf_texts": [],
+        "linear_texts": [
+          "ight"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.6154,
+        "error_type": "missed_toxic"
+      },
+      {
+        "idx": 27,
+        "text": "You are a simpleton, who is full of racial hatred.  That is too bad.  You make America a worse place.",
+        "gold_texts": [
+          "simpleton"
+        ],
+        "crf_texts": [
+          "is full of racial hatred"
+        ],
+        "linear_texts": [
+          "are a simpleton",
+          "is full of racial hatred",
+          "bad",
+          "make",
+          "place"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.3,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 42,
+        "text": "People who are anti-immigration are weak, lying, racist whiners.",
+        "gold_texts": [
+          "racist whiners"
+        ],
+        "crf_texts": [],
+        "linear_texts": [
+          "lying",
+          "racist"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.48,
+        "error_type": "missed_toxic"
+      },
+      {
+        "idx": 50,
+        "text": "More garbage pro terrorist anti Canadian drivel from the Globe, how's the subscriptions going? anyone still pay for this junk.",
+        "gold_texts": [],
+        "crf_texts": [
+          "garbage"
+        ],
+        "linear_texts": [
+          "garbage",
+          "junk"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 60,
+        "text": "Trump opened this particular Pandora's Box during the campaign, with his usual oral diarrhea. His supporters loved it. Karma took notice. Good. \n\nDepp has one thing in common with Trump. Lying for a living. A pox on them both.",
+        "gold_texts": [],
+        "crf_texts": [
+          "oral diarrhea",
+          "A pox on them both"
+        ],
+        "linear_texts": [
+          "rrhea",
+          "Lying",
+          "pox"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 70,
+        "text": "Priebus is a partisan opportunist who put party before country every chance he gets. Kelly may in fact be an upgrade compared to him. Either way, more proof that Trump and Friends are as incompetent as they are crass.",
+        "gold_texts": [
+          "crass"
+        ],
+        "crf_texts": [
+          "Priebus",
+          "opportunist",
+          "incompetent"
+        ],
+        "linear_texts": [
+          "opportunist",
+          "incompetent",
+          "ass"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.2,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 73,
+        "text": "Apparently, the bang gang kids only needed a weak ass excuse, real or imagined, to kill",
+        "gold_texts": [
+          "ass"
+        ],
+        "crf_texts": [
+          "kill"
+        ],
+        "linear_texts": [
+          "ass",
+          "kill"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.6,
+        "error_type": "zero_overlap_mismatch"
+      },
+      {
+        "idx": 81,
+        "text": "Trump will get the ban back in place and keep those moslums out, hazzah!",
+        "gold_texts": [],
+        "crf_texts": [
+          "those moslums out"
+        ],
+        "linear_texts": [
+          "moslums"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 84,
+        "text": "Hey Repubes, I bet you think that \"wall\" is going to be built on Mexicos dollar too huh? What a bunch of gullible losers!!!!",
+        "gold_texts": [],
+        "crf_texts": [
+          "losers"
+        ],
+        "linear_texts": [
+          "losers"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 0.0,
+        "error_type": "empty_false_positive"
+      }
+    ],
+    "worst_partial_f1": [
+      {
+        "idx": 881,
+        "text": "Dumb because it is obvious Assad never used chemical weapons.  It is clearly the rebels that have used chemical weapons, and not Assad.  Assad has a vast superiority in weapons, so has no need to resort to cheap weapons like chemical weapons, that are not very effective or easy to aim.  The rebels are the ones who don't have good weapons and have always been improvising alternatives like chemical weapons.  The UN can send in inspectors whenever they want, and they have never found any chemical weapons being used or possessed by Assad.  Why would Assad have turned over all his chemical weapons in 2013 if he intended to still use them?  Why would he bother using them at all, since he has much more lethal weapons?",
+        "gold_texts": [
+          "Dumb because it is obvious Assad never used chemical weapons.  It is clearly the rebels that have used chemical weapons, and not Assad.  Assad has a vast superiority in weapons, so has no need to resort to cheap weapons like chemical weapons, that are not very effective or easy to aim.  The rebels are the ones who don't have good weapons and have always been improvising alternatives like chemical weapons.  The UN can send in inspectors whenever they want, and they have never found any chemical weapons being used or possessed by Assad.  Why would Assad have turned over all his chemical weapons in 2013 if he intended to still use them?  Why would he bother using them at all, since he has much more lethal w"
+        ],
+        "crf_texts": [
+          "Dumb"
+        ],
+        "linear_texts": [
+          "Dumb"
+        ],
+        "crf_f1": 0.0112,
+        "linear_f1": 0.0112,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 1070,
+        "text": "Raven, you have it all wrong!  \"Alaskans\" respect those that have respect for them. We have none for blowhards, outsiders and idiot know-it-all newcomers that want to make Alaska into another L48 sinkhole with all concrete, asphalt and skyscrapers, stupid laws and rules that dont work down south. Oldtimers are determined to leave Alaska for the future Alaskans. Who knows humans may get a streak of sense in not to rape the earth for resources for a very few wealthy corporations. A couple of thousand jobs isn't worth destroying water, land and air for hundreds of thousands in Alaska and destroying fish that feeds millions around the world.",
+        "gold_texts": [
+          "idiot"
+        ],
+        "crf_texts": [
+          "idiot know-it-all newcomers that want to make Alaska into another L48 sinkhole with all concrete, asphalt and skyscrapers, stupid laws and rules that dont work down south"
+        ],
+        "linear_texts": [
+          "idiot know-it-all",
+          "stupid laws and"
+        ],
+        "crf_f1": 0.0571,
+        "linear_f1": 0.2703,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1272,
+        "text": "Great article. Thank you for saving me so much time in researching who will not ever get my vote.\n\nObama's Failed Legacy's and they think that is good?!\n\nLaughable and pathetic.",
+        "gold_texts": [
+          "Great article. Thank you for saving me so much time in researching who will not ever get my vote.\n\nObama's Failed Legacy's and they think that is good?!\n\nLaughable and pathet"
+        ],
+        "crf_texts": [
+          "pathetic"
+        ],
+        "linear_texts": [
+          "pathetic"
+        ],
+        "crf_f1": 0.0659,
+        "linear_f1": 0.0659,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 62,
+        "text": "I saw a Fox News commentator say the opposite-- that Trump made a fool of himself with Acosta and should never be allowed to make public presentations-- especially to the press. I agree-- Miller has a loose screw and flips out losing his temper.",
+        "gold_texts": [
+          "fool"
+        ],
+        "crf_texts": [
+          "-- that Trump made a fool of himself with Acosta and should never be allowed",
+          "-- Miller has a loose screw"
+        ],
+        "linear_texts": [
+          "made a fool of himself with Acosta and should never be",
+          "screw",
+          "s out"
+        ],
+        "crf_f1": 0.0748,
+        "linear_f1": 0.1176,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1596,
+        "text": "HOW could Trump be 'worse' than a lying, murdering, thieving career criminal that takes bribes from countries that murder gays, treat their women worse than their dogs and stands by as Christians are murdered because they won't convert? Let's not count all the 'mysterious' or 'coincidental' deaths that have followed her since she was fired from the Nixon investigation.",
+        "gold_texts": [
+          "murdering"
+        ],
+        "crf_texts": [
+          "lying, murdering, thieving career criminal that takes bribes from countries that murder gays, treat their women worse than their dogs and stands by as Christians are murdered because they won"
+        ],
+        "linear_texts": [
+          "a",
+          "lying, murdering, thieving career criminal that takes bribes from countries that murder gays, treat their women worse than their dogs and stands by as Christians are murdered because they won't convert"
+        ],
+        "crf_f1": 0.09,
+        "linear_f1": 0.0853,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 679,
+        "text": "your either an islamist or a far left(marxist) who hates Jesus Christ...\nthere are no homicide baptists running around, genius!!\n-------------------------------------\nTHIS is hate; all from the Qur\u2019an.\u201d\n\nThe eternal, unchanging words of Allah:\n\nQ 2:193 \u201cAnd kill them [unbelievers] wherever you find them.\u201d\n\nQ 2:216 \u201cFighting is prescribed for you.\u201d\n\nQ 8:12 \u201cI will strike terror into the hearts of those who disbelieve. Therefore\nstrike off their heads and strike off every fingertip of them.\u201d\n\nQ 9:5 \u201cSlay the idolaters wherever you find them, and take them captive and\nbesiege them and lie in wait for them in every ambush.\u201d\n\nQ 9:123 \u201cO you who believe! Fight those of the unbelievers who are near to you\nand let them find in you hardness.\u201d\n\nQ 4:73 \u201cSo, when you meet those who disbelieve smite at their necks till when\nyou have killed them and wounded many of them.\u201d\n\nQ 5:14 : \u201cWe [Muslims] estranged them [Christians] with enmity and HATRED\nbetween one and the other, TO THE DAY OF JUDGMENT.\u201d",
+        "gold_texts": [
+          "homicide",
+          "kill them"
+        ],
+        "crf_texts": [
+          "your either an islamist or a far left(marxist) who hates Jesus Christ",
+          "..\nthere are no homicide baptists running around, genius!!\n---------------",
+          "idolaters"
+        ],
+        "linear_texts": [
+          "either an islamist or a far left(marxist) who hates Jesus Christ.",
+          "are",
+          "baptists running",
+          ", genius",
+          "is hate",
+          "them",
+          "Sl",
+          "the idolaters"
+        ],
+        "crf_f1": 0.0947,
+        "linear_f1": 0.0593,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1357,
+        "text": "I have to assume you are joking.  No one could be that dumb.",
+        "gold_texts": [
+          "I have to assume you are joking.  No one could be that dum"
+        ],
+        "crf_texts": [
+          "dumb"
+        ],
+        "linear_texts": [
+          "dumb"
+        ],
+        "crf_f1": 0.0968,
+        "linear_f1": 0.0968,
+        "error_type": "partial_under_extension"
+      },
+      {
+        "idx": 1126,
+        "text": "Marvellous...to win this race for Conservative leadership we're told that you'll have to become mean, aggressive and basically insensitive. Pathetic and more importantly, who cares?! This is simply irrelevant! I hope the Conservatives are vacuous enough to elect O'Leary, he is completely unappealing without a shred of depth or political authenticity.  Canadians will overwhelmingly reject him.",
+        "gold_texts": [
+          "Pathetic"
+        ],
+        "crf_texts": [
+          "race for Conservative leadership we're told that you'll have to become mean, aggressive and basically insensitive",
+          "Pathetic and more importantly, who cares?"
+        ],
+        "linear_texts": [
+          "ensitive",
+          "Pathetic",
+          "who cares"
+        ],
+        "crf_f1": 0.0988,
+        "linear_f1": 0.4848,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1443,
+        "text": "This man has brought the world close to a nuclear show down and he is worried about the nfl. He is nuts and the people who voted for him are nuts.",
+        "gold_texts": [
+          "nuts",
+          "nuts"
+        ],
+        "crf_texts": [
+          "This man has brought the world close to a nuclear show down and he is",
+          "nuts"
+        ],
+        "linear_texts": [
+          "has brought the world close to a nuclear show down",
+          "is",
+          "nuts",
+          "nuts"
+        ],
+        "crf_f1": 0.0988,
+        "linear_f1": 0.2353,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1275,
+        "text": "_\"I find it interesting in the wake of the tragedy that happened in France, in which a deranged individual drove his truck through a crowd and killed more than 80 people, that gun-control advocates aren\u2019t screaming for a ban on such trucks.\"_  Joe Eastburn, letter writer\n\nOh please Civil Comments reviewers, please give me a \"pass\" ...\n\nWhat an idiot!\n\n-- Paul",
+        "gold_texts": [
+          "idiot"
+        ],
+        "crf_texts": [
+          "which a deranged individual drove his truck through a crowd and killed more than 80 people",
+          "idiot"
+        ],
+        "linear_texts": [
+          "killed",
+          "80 people",
+          "idiot"
+        ],
+        "crf_f1": 0.1,
+        "linear_f1": 0.4,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 676,
+        "text": "I spent 8 years teaching women how NOT to end up in court - unless on the other end of an assault charge where they had ripped a shin or the lower lip, or smashed the two fine nose bones right into the brain... Toughest problem was overcoming women's revulsion at the simple yet very effective techniques.  I remember one young female idiot who insisted on walking through a dark park at night to get home. Said it was her 'right'. Sure enough, she was attacked one evening. She fought her assailant off. Never forgot her feminist arrogance. \nSpeaking of which...\nI can believe you were a lawyer who defended such idiots. No doubt you remember the true story about the NYC cop cross-examined in court by a Defence Attorney as to why he locked his locker at work if he really trusted his fellow cops? The cop's response: \"Sometimes lawyers walk through our locker room.\"\nBased on your 'arguments' and reactions on this site, I have difficulty believing it was the opposing counsel who were clueless.",
+        "gold_texts": [
+          "idiots"
+        ],
+        "crf_texts": [
+          "ripped a shin or the lower lip, or smashed the two fine nose bones right into the brain",
+          "idiot",
+          "idiots"
+        ],
+        "linear_texts": [
+          "lower",
+          "brain",
+          "idiot",
+          "idiots"
+        ],
+        "crf_f1": 0.1154,
+        "linear_f1": 0.4444,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1512,
+        "text": "Actually, I bet it's more of a matter that a bunch of men that didn't serve (like Trump...and you, I bet) feel that their manhood is being threatened by gays and transgendered folks being able-and willing- to serve.\n\nYou said that you were critical of Trump because he isn't doing what he said he'd do fast enough.  There's word going around that part of this decision is to take those measly dollars spent on care for trans folks and divert towards funding for the border wall.  Weren't we told over and over that Mexico was going to pay for the wall?\n\nEver wonder why despite Trump's rhetoric about \"locking her up\", he decided after the election to move on from prosecuting Hillary?  Have you ever wondered why we're back to Hillary again?\n\nDo you enjoy being played for a fool?",
+        "gold_texts": [
+          "fool"
+        ],
+        "crf_texts": [
+          "manhood is being threatened by gays and transgendered folks",
+          "fool"
+        ],
+        "linear_texts": [
+          "gays and transgendered folks",
+          "fool"
+        ],
+        "crf_f1": 0.1194,
+        "linear_f1": 0.2222,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 1179,
+        "text": "Oh yes, having a racist POTUS who equates Nazis with protesters and says that they include \"good people,\" after a Nazi murders someone, is not the problem. At all. Keep drinking the lying sociopath's koolaid.",
+        "gold_texts": [
+          "racist"
+        ],
+        "crf_texts": [
+          "racist POTUS",
+          "after a Nazi murders someone",
+          "Keep drinking the lying sociopath's koolaid"
+        ],
+        "linear_texts": [
+          "a Nazi murders someone",
+          "Keep drinking the lying sociopath's koolaid"
+        ],
+        "crf_f1": 0.1348,
+        "linear_f1": 0.0,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 611,
+        "text": "typical liberal trolling bs as daily from you loser.. the DEMOcRATES have become a collection of loons and extreme criminals, fixing elections, buying media ,, the respectfull democrat party of JFK is no more.. super pacs, billionaires funding violence and those rediculous nonsense of fair anything that they never actually want,, are a dangerous menace to society and should be banned from holding public office,, right nazi fascist idiot jimbo!!!!!!!!!!!!!!! man you are a sick anti freedom anything left wing nut job",
+        "gold_texts": [
+          "idiot"
+        ],
+        "crf_texts": [
+          "loser",
+          "loons and extreme criminals",
+          "rediculous nonsense",
+          "nazi fascist idiot"
+        ],
+        "linear_texts": [
+          "loser",
+          "ic",
+          "fascist idiot"
+        ],
+        "crf_f1": 0.1351,
+        "linear_f1": 0.4,
+        "error_type": "partial_over_extension"
+      },
+      {
+        "idx": 482,
+        "text": "The only immaturity is your failure to recognize reality based in historical fact despite it biting you in your behind on a daily basis.  Try reading something beyond your television screen.",
+        "gold_texts": [
+          "immaturity"
+        ],
+        "crf_texts": [
+          "The only immaturity is your failure to recognize reality based in historical fact despite it biting you in your behind on a daily basis"
+        ],
+        "linear_texts": [
+          "The only immaturity is your failure to recognize reality based in historical fact despite it biting you in your behind on a daily basis"
+        ],
+        "crf_f1": 0.1379,
+        "linear_f1": 0.1379,
+        "error_type": "partial_over_extension"
+      }
+    ],
+    "crf_beats_linear": [
+      {
+        "idx": 350,
+        "text": "Deep ecology madness is a sad sick religion.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "sick"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 540,
+        "text": "Jughead - Cat's out of the bag so you might as well bring up NOAA doctoring climate data before the Paris conference to manipulate the behaviour of the limited. Critical success factor would be to have someone dummy it down & explain it to you first. Maybe show him a selfie of you & Eco-Barbie McKenna in Paris so he can appreciate the nostalgia of two weak minds in a single frame.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "minds"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 648,
+        "text": "ya standing up to try and stop a gas attack, a crime on humanity is aggression in your little mind?? , its ignorant people like you that are a disgrace.",
+        "gold_texts": [
+          "disgrace"
+        ],
+        "crf_texts": [
+          "disgrace"
+        ],
+        "linear_texts": [
+          "ignorant"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 667,
+        "text": "Am I the only person sick to death of gay parades?  Isn't there more to life than sexual orientation ?  Canada was one of the first countries in the world to recognize gay marriage... is it still necessary to have these marches...... If you really want to make a difference then try and march in Saudi Arabia.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "sick to death",
+          "gay"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 794,
+        "text": "I'm appalled at some of you so called adults. You are attempting to humiliate and belittle high school students who have every right to be heard whether or not they agree with you. You are correcting their grammar and telling them to be seen and not heard. Acting like just because they are from a smaller community that they aren't smart enough to understand what is going on in the world. You are acting more like children than they are. These kids are being accepted to schools like Yale, Harvard, Stanford etc. South is an exceptional school academically and these kids are not dumb. Please, try to act like civilized adults and not talk down to or about children. I, for one am glad they are not learning from you because you are setting a horrible example.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "appalled",
+          "are attempting to humiliate and belittle",
+          "are",
+          "ing",
+          "dumb"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 1308,
+        "text": "The homicide rate in Germany is the lower than the USA. I suppose the Americans too should get rid of all their Muslim citizens in order to reduce gang violence?",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "Muslim"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 1330,
+        "text": "Chicago is full of poorly educated black folks who's offspring do more harm to their own kind than one hundred Dylan Roofs ever could... and that was just 2016. Your turn.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "folks"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 1540,
+        "text": "Israel dislikes  Arabs\n...and YOU should TOO!",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "dislikes  Arabs",
+          "should TOO"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 1599,
+        "text": "Just another example of the mentally ill population that inhabit downtown , a useless bag of kukae that take out its frustrations on something beautiful to highlight a wasted life.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "mentally ill",
+          "wasted"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      },
+      {
+        "idx": 1720,
+        "text": "Subsidized heavily, likely, but If you think 20-30 000/year tuition only, plus living expenses x4 years for just medical school is chump change.",
+        "gold_texts": [],
+        "crf_texts": [],
+        "linear_texts": [
+          "chump"
+        ],
+        "crf_f1": 1.0,
+        "linear_f1": 0.0,
+        "error_type": "exact_match"
+      }
+    ],
+    "linear_beats_crf": [
+      {
+        "idx": 231,
+        "text": "The crying,  ragging , left wing snow flakes all have egg on their face. \n\nOne must muse with Bill Clinton staring at Ivanka Trump  during the inauguration with his daughter standing in anger and humiliation - truly let the Clinton's crawl away!!!\n\nGod bless America, the hell with Marxist.\n\nGo Key Stone!!!",
+        "gold_texts": [],
+        "crf_texts": [
+          "let the Clinton's crawl away"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 692,
+        "text": "How many off-colour, racist anti-white slags by black students on campuses go unpunished? All of them.",
+        "gold_texts": [],
+        "crf_texts": [
+          "racist anti-white slags by black students"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 867,
+        "text": "Zinga zinga, pull yo little head out yo big ass zinga",
+        "gold_texts": [
+          "ass"
+        ],
+        "crf_texts": [],
+        "linear_texts": [
+          "ass"
+        ],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "missed_toxic"
+      },
+      {
+        "idx": 1097,
+        "text": "\"Iran will not yield to \u201cuseless\u201d U.S. threats from \u201can inexperienced person\u201d over its ballistic missile programme\"\n\nThey would MUCH rather make a deal with an \"experienced person\" such as Obama. Oh wait- they already have, and we know how that turned out, don't we? Send them a few $B again - that will keep them quiet.",
+        "gold_texts": [],
+        "crf_texts": [
+          "useless"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "empty_false_positive"
+      },
+      {
+        "idx": 1341,
+        "text": "Worst snow plowing in half a century. But lots of cops to write tickets. What a sorry city government we have. And they will say \"oh that is a state road\" pathetic. If they say it's for safety or for the children they really mean it's for more money for government.",
+        "gold_texts": [],
+        "crf_texts": [
+          "pathetic"
+        ],
+        "linear_texts": [],
+        "crf_f1": 0.0,
+        "linear_f1": 1.0,
+        "error_type": "empty_false_positive"
+      }
+    ]
+  }
+}
