@@ -1,0 +1,1005 @@
+{
+ "conda_bench": {
+  "errors": [
+   {
+    "category": "masked_game",
+    "cause": "T1",
+    "count": 3
+   },
+   {
+    "category": "masked_game",
+    "cause": "T2+T3",
+    "count": 11
+   },
+   {
+    "category": "masked_game",
+    "cause": "T3",
+    "count": 56
+   },
+   {
+    "category": "masked_other",
+    "cause": "T1",
+    "count": 7
+   },
+   {
+    "category": "masked_other",
+    "cause": "T2+T3",
+    "count": 48
+   },
+   {
+    "category": "masked_other",
+    "cause": "T3",
+    "count": 153
+   },
+   {
+    "category": "masked_t_nontoxic",
+    "cause": "T2+T3",
+    "count": 30
+   },
+   {
+    "category": "missed_target",
+    "cause": "T2",
+    "count": 11
+   },
+   {
+    "category": "missed_target",
+    "cause": "T2+T3",
+    "count": 2
+   },
+   {
+    "category": "missed_target",
+    "cause": "T3",
+    "count": 59
+   },
+   {
+    "category": "warn_false_A",
+    "cause": "T1",
+    "count": 1
+   },
+   {
+    "category": "warn_false_A",
+    "cause": "T2",
+    "count": 1
+   },
+   {
+    "category": "warn_false_O",
+    "cause": "T1",
+    "count": 9
+   },
+   {
+    "category": "warn_false_O",
+    "cause": "T2",
+    "count": 78
+   },
+   {
+    "category": "warn_miss_E",
+    "cause": "T1",
+    "count": 1
+   },
+   {
+    "category": "warn_miss_E",
+    "cause": "T2",
+    "count": 53
+   },
+   {
+    "category": "warn_miss_I",
+    "cause": "T2",
+    "count": 59
+   }
+  ],
+  "implicit_rows": 225,
+  "implicit_without_target": 214,
+  "implicit_without_target_warned": 158,
+  "data_examples": [
+   {
+    "intent": "E",
+    "raw": "ez katka fucking russians )",
+    "words": [
+     [
+      "ez",
+      "S"
+     ],
+     [
+      "katka",
+      "O"
+     ],
+     [
+      "fucking",
+      "T"
+     ],
+     [
+      "russians",
+      "O"
+     ],
+     [
+      ")",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "I",
+    "raw": "pudge what u said?",
+    "words": [
+     [
+      "pudge",
+      "C"
+     ],
+     [
+      "what",
+      "P"
+     ],
+     [
+      "u",
+      "P"
+     ],
+     [
+      "said",
+      "O"
+     ],
+     [
+      "?",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "A",
+    "raw": "CAN REPORT GYRO PLS",
+    "words": [
+     [
+      "CAN",
+      "O"
+     ],
+     [
+      "REPORT",
+      "S"
+     ],
+     [
+      "GYRO",
+      "C"
+     ],
+     [
+      "PLS",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "O",
+    "raw": "go for rune again",
+    "words": [
+     [
+      "go",
+      "S"
+     ],
+     [
+      "for",
+      "O"
+     ],
+     [
+      "rune",
+      "S"
+     ],
+     [
+      "again",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "O",
+    "raw": "You had to hook me ?",
+    "words": [
+     [
+      "You",
+      "P"
+     ],
+     [
+      "had",
+      "O"
+     ],
+     [
+      "to",
+      "O"
+     ],
+     [
+      "hook",
+      "T"
+     ],
+     [
+      "me",
+      "P"
+     ],
+     [
+      "?",
+      "O"
+     ]
+    ]
+   }
+  ],
+  "top_words": {
+   "masked_game": [
+    [
+     "ez",
+     9
+    ],
+    [
+     "bot",
+     7
+    ],
+    [
+     "pudge",
+     5
+    ],
+    [
+     "mid",
+     3
+    ],
+    [
+     "sf",
+     3
+    ],
+    [
+     "slark",
+     2
+    ],
+    [
+     "donkey",
+     2
+    ],
+    [
+     "sniper",
+     2
+    ],
+    [
+     "slardar",
+     2
+    ],
+    [
+     "ezz",
+     2
+    ],
+    [
+     "off",
+     2
+    ],
+    [
+     "deaths",
+     1
+    ],
+    [
+     "invoker",
+     1
+    ],
+    [
+     "bs",
+     1
+    ],
+    [
+     "gyro",
+     1
+    ],
+    [
+     "pounce",
+     1
+    ],
+    [
+     "storm",
+     1
+    ],
+    [
+     "rat",
+     1
+    ],
+    [
+     "fb",
+     1
+    ],
+    [
+     "potm",
+     1
+    ]
+   ],
+   "masked_other": [
+    [
+     "you",
+     14
+    ],
+    [
+     "trash",
+     13
+    ],
+    [
+     "u",
+     9
+    ],
+    [
+     "your",
+     6
+    ],
+    [
+     "shut",
+     5
+    ],
+    [
+     "up",
+     4
+    ],
+    [
+     "die",
+     4
+    ],
+    [
+     "kill",
+     4
+    ],
+    [
+     "fk",
+     4
+    ],
+    [
+     "my",
+     4
+    ],
+    [
+     "bad",
+     4
+    ],
+    [
+     "useless",
+     3
+    ],
+    [
+     "worst",
+     3
+    ],
+    [
+     "fkn",
+     3
+    ],
+    [
+     "hero",
+     3
+    ],
+    [
+     "fegget",
+     2
+    ],
+    [
+     "stuns",
+     2
+    ],
+    [
+     "hes",
+     2
+    ],
+    [
+     "too",
+     2
+    ],
+    [
+     "f",
+     2
+    ]
+   ],
+   "masked_t_nontoxic": [
+    [
+     "fuck",
+     9
+    ],
+    [
+     "autistic",
+     2
+    ],
+    [
+     "crap",
+     2
+    ],
+    [
+     "wtf",
+     1
+    ],
+    [
+     "fucked",
+     1
+    ],
+    [
+     "fuckj",
+     1
+    ],
+    [
+     "noobs",
+     1
+    ],
+    [
+     "fvck",
+     1
+    ],
+    [
+     "uck",
+     1
+    ],
+    [
+     "whore",
+     1
+    ],
+    [
+     "morons",
+     1
+    ],
+    [
+     "dafuq",
+     1
+    ],
+    [
+     "scum",
+     1
+    ],
+    [
+     "dumbcunt",
+     1
+    ],
+    [
+     "fuckin",
+     1
+    ],
+    [
+     "fucker",
+     1
+    ],
+    [
+     "fucking",
+     1
+    ],
+    [
+     "idiot",
+     1
+    ],
+    [
+     "bastard",
+     1
+    ],
+    [
+     "cum",
+     1
+    ]
+   ],
+   "missed_target": [
+    [
+     "noob",
+     30
+    ],
+    [
+     "peru",
+     7
+    ],
+    [
+     "wtf",
+     6
+    ],
+    [
+     "fuck",
+     5
+    ],
+    [
+     "noobs",
+     4
+    ],
+    [
+     "fucking",
+     4
+    ],
+    [
+     "gay",
+     2
+    ],
+    [
+     "nigga",
+     2
+    ],
+    [
+     "shit",
+     2
+    ],
+    [
+     "abuse",
+     1
+    ],
+    [
+     "cunt",
+     1
+    ],
+    [
+     "fu",
+     1
+    ],
+    [
+     "lmfao",
+     1
+    ],
+    [
+     "stfu",
+     1
+    ],
+    [
+     "chink",
+     1
+    ],
+    [
+     "tramp",
+     1
+    ],
+    [
+     "black",
+     1
+    ],
+    [
+     "putang",
+     1
+    ],
+    [
+     "beast",
+     1
+    ]
+   ]
+  }
+ },
+ "gold_conda": {
+  "errors": [
+   {
+    "category": "masked_game",
+    "cause": "T1",
+    "count": 3
+   },
+   {
+    "category": "masked_game",
+    "cause": "T2+T3",
+    "count": 3
+   },
+   {
+    "category": "masked_game",
+    "cause": "T3",
+    "count": 10
+   },
+   {
+    "category": "masked_other",
+    "cause": "T1",
+    "count": 4
+   },
+   {
+    "category": "masked_other",
+    "cause": "T2+T3",
+    "count": 9
+   },
+   {
+    "category": "masked_other",
+    "cause": "T3",
+    "count": 13
+   },
+   {
+    "category": "masked_t_nontoxic",
+    "cause": "T2+T3",
+    "count": 6
+   },
+   {
+    "category": "missed_target",
+    "cause": "T2",
+    "count": 2
+   },
+   {
+    "category": "missed_target",
+    "cause": "T2+T3",
+    "count": 1
+   },
+   {
+    "category": "missed_target",
+    "cause": "T3",
+    "count": 3
+   },
+   {
+    "category": "warn_false_O",
+    "cause": "T1",
+    "count": 1
+   },
+   {
+    "category": "warn_false_O",
+    "cause": "T2",
+    "count": 11
+   },
+   {
+    "category": "warn_miss_E",
+    "cause": "T2",
+    "count": 15
+   },
+   {
+    "category": "warn_miss_I",
+    "cause": "T2",
+    "count": 6
+   }
+  ],
+  "implicit_rows": 14,
+  "implicit_without_target": 10,
+  "implicit_without_target_warned": 4,
+  "data_examples": [
+   {
+    "intent": "E",
+    "raw": "can't carry these idiots hard enough",
+    "words": [
+     [
+      "can't",
+      "O"
+     ],
+     [
+      "carry",
+      "S"
+     ],
+     [
+      "these",
+      "P"
+     ],
+     [
+      "idiots",
+      "T"
+     ],
+     [
+      "hard",
+      "O"
+     ],
+     [
+      "enough",
+      "P"
+     ]
+    ]
+   },
+   {
+    "intent": "I",
+    "raw": "can u insult us in english pls",
+    "words": [
+     [
+      "can",
+      "O"
+     ],
+     [
+      "u",
+      "P"
+     ],
+     [
+      "insult",
+      "O"
+     ],
+     [
+      "us",
+      "P"
+     ],
+     [
+      "in",
+      "O"
+     ],
+     [
+      "english",
+      "O"
+     ],
+     [
+      "pls",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "A",
+    "raw": "report clinkz plox, ty",
+    "words": [
+     [
+      "report",
+      "S"
+     ],
+     [
+      "clinkz",
+      "C"
+     ],
+     [
+      "plox",
+      "O"
+     ],
+     [
+      ",",
+      "O"
+     ],
+     [
+      "ty",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "O",
+    "raw": "bkb lasted longer anyway she dead by taht time",
+    "words": [
+     [
+      "bkb",
+      "D"
+     ],
+     [
+      "lasted",
+      "O"
+     ],
+     [
+      "longer",
+      "O"
+     ],
+     [
+      "anyway",
+      "O"
+     ],
+     [
+      "she",
+      "P"
+     ],
+     [
+      "dead",
+      "T"
+     ],
+     [
+      "by",
+      "O"
+     ],
+     [
+      "taht",
+      "O"
+     ],
+     [
+      "time",
+      "O"
+     ]
+    ]
+   },
+   {
+    "intent": "O",
+    "raw": "OSfrog Le balanced redhead whore OSfrog",
+    "words": [
+     [
+      "OSfrog",
+      "O"
+     ],
+     [
+      "Le",
+      "O"
+     ],
+     [
+      "balanced",
+      "O"
+     ],
+     [
+      "redhead",
+      "O"
+     ],
+     [
+      "whore",
+      "T"
+     ],
+     [
+      "OSfrog",
+      "O"
+     ]
+    ]
+   }
+  ],
+  "top_words": {
+   "masked_t_nontoxic": [
+    [
+     "fuck",
+     2
+    ],
+    [
+     "fvck",
+     1
+    ],
+    [
+     "whore",
+     1
+    ],
+    [
+     "fuckin",
+     1
+    ],
+    [
+     "idiot",
+     1
+    ]
+   ],
+   "masked_other": [
+    [
+     "die",
+     4
+    ],
+    [
+     "u",
+     2
+    ],
+    [
+     "this",
+     1
+    ],
+    [
+     "what",
+     1
+    ],
+    [
+     "the",
+     1
+    ],
+    [
+     "stinked",
+     1
+    ],
+    [
+     "my",
+     1
+    ],
+    [
+     "shhiiittt",
+     1
+    ],
+    [
+     "ded",
+     1
+    ],
+    [
+     "hell",
+     1
+    ],
+    [
+     "fail",
+     1
+    ],
+    [
+     "spiccy",
+     1
+    ],
+    [
+     "mad",
+     1
+    ],
+    [
+     "me",
+     1
+    ],
+    [
+     "up",
+     1
+    ],
+    [
+     "pheonix",
+     1
+    ],
+    [
+     "cow",
+     1
+    ],
+    [
+     "fuckeduplife",
+     1
+    ],
+    [
+     "nerds",
+     1
+    ],
+    [
+     "arrow",
+     1
+    ]
+   ],
+   "masked_game": [
+    [
+     "ez",
+     3
+    ],
+    [
+     "sniper",
+     2
+    ],
+    [
+     "mid",
+     2
+    ],
+    [
+     "necro",
+     1
+    ],
+    [
+     "spectre",
+     1
+    ],
+    [
+     "axe",
+     1
+    ],
+    [
+     "off",
+     1
+    ],
+    [
+     "sk",
+     1
+    ],
+    [
+     "qop",
+     1
+    ],
+    [
+     "bs",
+     1
+    ],
+    [
+     "ezz",
+     1
+    ],
+    [
+     "bot",
+     1
+    ]
+   ],
+   "missed_target": [
+    [
+     "noob",
+     2
+    ],
+    [
+     "shit",
+     1
+    ],
+    [
+     "putang",
+     1
+    ],
+    [
+     "fucking",
+     1
+    ],
+    [
+     "fuck",
+     1
+    ]
+   ]
+  }
+ },
+ "noisyhate": {
+  "errors": [
+   {
+    "category": "perturbed_word",
+    "cause": "not_recovered_masked",
+    "count": 84
+   },
+   {
+    "category": "perturbed_word",
+    "cause": "not_recovered_unmasked",
+    "count": 270
+   },
+   {
+    "category": "perturbed_word",
+    "cause": "recovered_masked",
+    "count": 378
+   },
+   {
+    "category": "perturbed_word",
+    "cause": "recovered_unmasked",
+    "count": 135
+   },
+   {
+    "category": "warn_miss_E",
+    "cause": "T1",
+    "count": 159
+   },
+   {
+    "category": "warn_miss_E",
+    "cause": "T2",
+    "count": 347
+   }
+  ],
+  "implicit_rows": 0,
+  "implicit_without_target": 0,
+  "implicit_without_target_warned": 0,
+  "top_words": {}
+ }
+}

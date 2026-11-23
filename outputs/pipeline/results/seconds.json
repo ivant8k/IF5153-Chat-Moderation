@@ -1,0 +1,23 @@
+{
+ "conda_bench|t1": 40.63613750299919,
+ "conda_bench|full": 7.249535924998781,
+ "conda_bench|strict": 5.770259469998564,
+ "conda_bench|no_t1": 7.168314070000633,
+ "conda_bench|oracle_t1": 6.978049970999564,
+ "conda_bench|no_gate": 32.299261487001786,
+ "conda_bench|lexicon": 0.047261153002182255,
+ "gold_conda|t1": 4.707911437999428,
+ "gold_conda|full": 1.0164968049975869,
+ "gold_conda|strict": 0.7405372579996765,
+ "gold_conda|no_t1": 0.905066089999309,
+ "gold_conda|oracle_t1": 0.9062723700008064,
+ "gold_conda|no_gate": 2.95919946900176,
+ "gold_conda|lexicon": 0.003764855002373224,
+ "noisyhate|t1": 29.947699915999692,
+ "noisyhate|full": 8.512626551997528,
+ "noisyhate|strict": 5.207254433000344,
+ "noisyhate|no_t1": 7.29199701899779,
+ "noisyhate|oracle_t1": 9.83891425100228,
+ "noisyhate|no_gate": 12.9316256480015,
+ "noisyhate|lexicon": 0.03020828799708397
+}

@@ -12,6 +12,8 @@ dependencies = [
     "pandas>=3.1.1",
     "scikit-learn>=1.4.0",
     "scipy>=1.13.0",
+    "pytorch-crf>=0.7.2",
+    "seqeval>=1.2.2",
 ]
 
 [dependency-groups]

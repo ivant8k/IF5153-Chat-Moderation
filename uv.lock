@@ -389,9 +389,11 @@ dependencies = [
     { name = "numpy" },
     { name = "pandas" },
     { name = "protobuf" },
+    { name = "pytorch-crf" },
     { name = "scikit-learn" },
     { name = "scipy" },
     { name = "sentencepiece" },
+    { name = "seqeval" },
     { name = "torch" },
     { name = "transformers" },
 ]
@@ -409,9 +411,11 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.0" },
     { name = "pandas", specifier = ">=3.1.1" },
     { name = "protobuf", specifier = ">=5.0" },
+    { name = "pytorch-crf", specifier = ">=0.7.2" },
     { name = "scikit-learn", specifier = ">=1.4.0" },
     { name = "scipy", specifier = ">=1.13.0" },
     { name = "sentencepiece", specifier = ">=0.2" },
+    { name = "seqeval", specifier = ">=1.2.2" },
     { name = "torch", specifier = "==2.15.0" },
     { name = "transformers", specifier = "==5.22.2" },
 ]
@@ -1150,6 +1154,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pytorch-crf"
+version = "0.7.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e2/8c/aa58618f8c9cc8b2ddd22d4e700028101ec331d4c65c8cca663844a9dc24/pytorch-crf-0.7.2.tar.gz", hash = "sha256:e6456e22ccfc99a3d4fe1e03e996103b1b39e9830bf3c7e12e7a9077d3be866d", size = 5996, upload-time = "2019-02-04T01:44:15.85Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/7d/4c4688e26ea015fc118a0327e5726e6596836abce9182d3738be8ec2e32a/pytorch_crf-0.7.2-py3-none-any.whl", hash = "sha256:1b2d7d5eea3255f6e0cac09ab8b645472e76ff70d9333bc88762cf7317a4992d", size = 9501, upload-time = "2019-02-04T01:44:14.387Z" },
+]
+
+[[package]]
 name = "pyyaml"
 version = "6.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1359,6 +1372,16 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b5/78/47be22c27976afed9f88cb9bcdb225abb37991c1ff442a9234e64e7a3d23/sentencepiece-0.2.3-cp312-cp312-win_amd64.whl", hash = "sha256:972af959c63cde446210a8935524806820c253afa4b0a97d83c206b857085f44", size = 1655435, upload-time = "2026-11-05T05:36:21.633Z" },
     { url = "https://files.pythonhosted.org/packages/e4/5c/6f921049ef4136e360437d370396ac36b927ce1be0184ddbeca50581580d/sentencepiece-0.2.3-cp312-cp312-win_arm64.whl", hash = "sha256:ceaf9a73f7e1672990547e8efe5bb79ea61884a8fe24600662d12e3a8aaf1a5b", size = 1860800, upload-time = "2026-11-05T05:36:26.727Z" },
 ]
+
+[[package]]
+name = "seqeval"
+version = "1.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "scikit-learn" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9d/2d/233c79d5b4e5ab1dbf111242299153f3caddddbb691219f363ad55ce783d/seqeval-1.2.2.tar.gz", hash = "sha256:f28e97c3ab96d6fcd32b648f6438ff2e09cfba87f05939da9b3970713ec56e6f", size = 43605, upload-time = "2020-10-24T00:24:54.926Z" }
 
 [[package]]
 name = "setuptools"
