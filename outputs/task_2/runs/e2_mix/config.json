@@ -1,0 +1,50 @@
+{
+  "run": "e2_mix",
+  "sources": "jigsaw,conda",
+  "conda_text": "norm,raw",
+  "jigsaw_neg_frac": 0.35,
+  "epochs": 3,
+  "lr": 3e-05,
+  "bs": 32,
+  "max_len": 128,
+  "init_from": null,
+  "select": "auto",
+  "seed": 2026,
+  "smoke": false,
+  "kind": "torch",
+  "n_train": 121221,
+  "pos_weight": [
+    1.0,
+    2.5681090354919434,
+    8.490717887878418,
+    3.5696563720703125,
+    10.0,
+    3.7061944007873535,
+    9.001365661621094
+  ],
+  "best_score": 0.8306945394052782,
+  "log": [
+    {
+      "epoch": 1,
+      "train_loss": 0.16291870507757003,
+      "score": 0.8117531444859294,
+      "conda_gate_ap": 0.9314193818989085,
+      "jigsaw_cat_ap": 0.6920869070729503
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.10350670399649158,
+      "score": 0.8306945394052782,
+      "conda_gate_ap": 0.9445209234673565,
+      "jigsaw_cat_ap": 0.7168681553431998
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.08149169923297178,
+      "score": 0.8303401563624738,
+      "conda_gate_ap": 0.9415259199674267,
+      "jigsaw_cat_ap": 0.7191543927575209
+    }
+  ],
+  "seconds": 5679.444604635239
+}
