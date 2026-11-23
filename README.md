@@ -4,7 +4,7 @@ In-Game Chat Moderation and Censor, IF5153 NLP kelompok 12.
 
 Pipeline moderasi chat game: chat mentah dinormalisasi, diklasifikasi toksik atau tidak, lalu kata toksik disensor. Kata yang tidak disensor tetap dalam ejaan asli pemain.
 
-![BEAM](docs/diagram_2026-09-16T16-18-20.jpg)
+![BEAM](docs/beam-notation-final.png)
 
 | Task | Isi | Model | README |
 | --- | --- | --- | --- |
